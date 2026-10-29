@@ -33,7 +33,7 @@ export default function ApplicationsPage() {
       
       {/* HEADER BANNER */}
       <section className="bg-stone-900 text-white py-16 lg:py-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left reveal">
           <div className="flex items-center justify-center sm:justify-start gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
             <Building2 className="w-4 h-4" />
             Surface Chemistry & Application Engineering
@@ -73,7 +73,7 @@ export default function ApplicationsPage() {
         <div className="bg-white rounded-3xl border border-stone-200/90 shadow-md overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0">
           
           {/* Visual Left */}
-          <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full bg-stone-900">
+          <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full bg-stone-900 reveal-left">
             <Image
               src={currentApp.image}
               alt={currentApp.title}
@@ -92,7 +92,7 @@ export default function ApplicationsPage() {
           </div>
 
           {/* Details Right */}
-          <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between space-y-6 reveal-right delay-100">
             <div>
               <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-1">
                 Engineering Specification
@@ -184,7 +184,7 @@ export default function ApplicationsPage() {
       {/* 6 APPLICATIONS GRID (Matching template bottom row) */}
       <section className="py-12 bg-stone-100/70 border-t border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-xl mx-auto mb-10">
+          <div className="text-center max-w-xl mx-auto mb-10 reveal">
             <h2 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight">
               All Application Categories
             </h2>
@@ -194,11 +194,13 @@ export default function ApplicationsPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {applications.map((app) => (
+            {applications.map((app, idx) => (
               <div
                 key={app.id}
                 id={app.id}
-                className="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between"
+                className={`bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between reveal ${
+                  idx % 3 === 0 ? 'delay-100' : idx % 3 === 1 ? 'delay-200' : 'delay-300'
+                }`}
               >
                 <div>
                   <div className="relative h-44 w-full bg-stone-200">

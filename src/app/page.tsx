@@ -95,7 +95,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Hero Content */}
-            <div className="lg:col-span-7 space-y-5">
+            <div className="lg:col-span-7 space-y-5 reveal-left">
               <span className="text-[#c5832b] text-xs font-black tracking-widest uppercase block">
                 PREMIUM TILE ADHESIVES
               </span>
@@ -130,7 +130,7 @@ export default function HomePage() {
             </div>
 
             {/* Right Card Overlay matching template */}
-            <div className="lg:col-span-5 flex justify-end">
+            <div className="lg:col-span-5 flex justify-end reveal-right delay-200">
               <div className="bg-stone-950/70 backdrop-blur-xs p-6 rounded-xl border border-stone-800/80 max-w-xs text-white relative">
                 <div className="absolute left-0 top-6 bottom-6 w-1 bg-[#c5832b] rounded-r"></div>
                 <div className="pl-4">
@@ -154,7 +154,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 reveal delay-100">
               <div className="w-10 h-10 rounded-lg border border-[#c5832b]/60 flex items-center justify-center shrink-0 text-[#c5832b]">
                 <Shield className="w-5 h-5 stroke-[1.75]" />
               </div>
@@ -164,7 +164,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 reveal delay-150">
               <div className="w-10 h-10 rounded-lg border border-[#c5832b]/60 flex items-center justify-center shrink-0 text-[#c5832b]">
                 <Droplet className="w-5 h-5 stroke-[1.75]" />
               </div>
@@ -174,7 +174,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 reveal delay-200">
               <div className="w-10 h-10 rounded-lg border border-[#c5832b]/60 flex items-center justify-center shrink-0 text-[#c5832b]">
                 <Layers className="w-5 h-5 stroke-[1.75]" />
               </div>
@@ -184,7 +184,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 reveal delay-250">
               <div className="w-10 h-10 rounded-lg border border-[#c5832b]/60 flex items-center justify-center shrink-0 text-[#c5832b]">
                 <Home className="w-5 h-5 stroke-[1.75]" />
               </div>
@@ -194,7 +194,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 reveal delay-300">
               <div className="w-10 h-10 rounded-lg border border-[#c5832b]/60 flex items-center justify-center shrink-0 text-[#c5832b]">
                 <Users className="w-5 h-5 stroke-[1.75]" />
               </div>
@@ -211,7 +211,7 @@ export default function HomePage() {
       {/* 3. OUR PRODUCT RANGE */}
       <section className="py-14 sm:py-18 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header row */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4 reveal">
           <div>
             <h2 className="text-2xl sm:text-3xl font-black text-stone-900 font-serif-heading">
               Our Product Range
@@ -233,7 +233,7 @@ export default function HomePage() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           
           {/* 1. VB-1001 Standard Tile Adhesive */}
-          <div className="flex flex-col items-center text-center group">
+          <div className="flex flex-col items-center text-center group reveal delay-100">
             <Link href="/products/vb-1001-floor-wall-tile-adhesive" className="w-full flex justify-center">
               <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
@@ -269,7 +269,7 @@ export default function HomePage() {
           </div>
 
           {/* 2. VB-2002 Ceramic and Vitrified Tile Adhesive */}
-          <div className="flex flex-col items-center text-center group">
+          <div className="flex flex-col items-center text-center group reveal delay-200">
             <Link href="/products/vb-2002-ceramic-vitrified-tile-adhesive" className="w-full flex justify-center">
               <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
@@ -305,7 +305,7 @@ export default function HomePage() {
           </div>
 
           {/* 3. VB-2004 Ultra Tile-on-Tile Adhesive */}
-          <div className="flex flex-col items-center text-center group">
+          <div className="flex flex-col items-center text-center group reveal delay-300">
             <Link href="/products/vb-2004-floor-wall-tile-on-tile-adhesive" className="w-full flex justify-center">
               <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
@@ -341,7 +341,7 @@ export default function HomePage() {
           </div>
 
           {/* 4. VB-3003 Large Format Tile & Stone Adhesive */}
-          <div className="flex flex-col items-center text-center group">
+          <div className="flex flex-col items-center text-center group reveal delay-400">
             <Link href="/products/vb-3003-large-format-tile-stone-adhesive" className="w-full flex justify-center">
               <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
@@ -383,7 +383,7 @@ export default function HomePage() {
       <section className="py-14 bg-stone-50/50 border-t border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 reveal">
             <div>
               <h2 className="text-2xl sm:text-3xl font-black text-stone-900 font-serif-heading">
                 Applications
@@ -404,7 +404,7 @@ export default function HomePage() {
           {/* 5 Application Cards matching template */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             
-            <Link href="/applications" className="group">
+            <Link href="/applications" className="group reveal delay-100">
               <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden bg-stone-200 shadow-xs">
                 <Image
                   src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop"
@@ -418,7 +418,7 @@ export default function HomePage() {
               </h3>
             </Link>
 
-            <Link href="/applications" className="group">
+            <Link href="/applications" className="group reveal delay-150">
               <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden bg-stone-200 shadow-xs">
                 <Image
                   src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop"
@@ -432,7 +432,7 @@ export default function HomePage() {
               </h3>
             </Link>
 
-            <Link href="/applications" className="group">
+            <Link href="/applications" className="group reveal delay-200">
               <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden bg-stone-200 shadow-xs">
                 <Image
                   src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop"
@@ -446,7 +446,7 @@ export default function HomePage() {
               </h3>
             </Link>
 
-            <Link href="/applications" className="group">
+            <Link href="/applications" className="group reveal delay-250">
               <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden bg-stone-200 shadow-xs">
                 <Image
                   src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop"
@@ -460,7 +460,7 @@ export default function HomePage() {
               </h3>
             </Link>
 
-            <Link href="/applications" className="group">
+            <Link href="/applications" className="group reveal delay-300">
               <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden bg-stone-200 shadow-xs">
                 <Image
                   src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=600&auto=format&fit=crop"
@@ -496,7 +496,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             {/* Left: Why Choose Vajra Bond & 6 Hexagonal Icons */}
-            <div className="lg:col-span-8 space-y-8">
+            <div className="lg:col-span-8 space-y-8 reveal-left">
               <div>
                 <h2 className="text-3xl sm:text-4xl font-black font-serif-heading text-white tracking-tight">
                   Why Choose Vajra Bond?
@@ -565,7 +565,7 @@ export default function HomePage() {
             </div>
 
             {/* Right: MAJBOOT JOD. LAMBI UMAR. */}
-            <div className="lg:col-span-4 text-left lg:text-right border-l lg:border-l-0 lg:border-r-0 border-stone-800 pl-6 lg:pl-0">
+            <div className="lg:col-span-4 text-left lg:text-right border-l lg:border-l-0 lg:border-r-0 border-stone-800 pl-6 lg:pl-0 reveal-right delay-200">
               <h3 className="text-2xl sm:text-3xl font-black text-[#c5832b] font-serif-heading tracking-wider leading-tight">
                 MAJBOOT JOD. <br />
                 LAMBI UMAR.
@@ -613,7 +613,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left: Architectural Photo with pool & sliding glass patio */}
-          <div className="lg:col-span-5 relative h-72 sm:h-96 rounded-2xl overflow-hidden shadow-md">
+          <div className="lg:col-span-5 relative h-72 sm:h-96 rounded-2xl overflow-hidden shadow-md reveal-left">
             <Image
               src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop"
               alt="Tile adhesive estimation for luxury villa patio"
@@ -623,7 +623,7 @@ export default function HomePage() {
           </div>
 
           {/* Right: Calculator Form matching template */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-stone-200 shadow-xs relative">
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-stone-200 shadow-xs relative reveal-right delay-150">
             {/* Top Right Calculator Outline Icon matching template */}
             <div className="absolute top-6 right-6 text-[#c5832b]/50">
               <Calculator className="w-10 h-10 stroke-[1.25]" />
@@ -741,7 +741,7 @@ export default function HomePage() {
       <section className="py-14 sm:py-18 bg-stone-100/60 border-y border-stone-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 reveal">
             <div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[#c5832b] text-xs font-bold uppercase tracking-wider mb-2">
                 <BookOpen className="w-3.5 h-3.5" />
@@ -764,11 +764,13 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {blogPosts.slice(0, 3).map((post) => (
+            {blogPosts.slice(0, 3).map((post, idx) => (
               <Link
                 key={post.slug}
                 href={`/blogs/${post.slug}`}
-                className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className={`group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal ${
+                  idx === 0 ? 'delay-100' : idx === 1 ? 'delay-200' : 'delay-300'
+                }`}
               >
                 <div>
                   <div className="relative aspect-[16/10] w-full bg-stone-100 overflow-hidden">
@@ -835,7 +837,7 @@ export default function HomePage() {
       {/* 9. WHAT OUR CUSTOMERS SAY */}
       <section className="py-14 sm:py-18 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header row with Carousel Arrows matching template */}
-        <div className="flex items-end justify-between mb-8">
+        <div className="flex items-end justify-between mb-8 reveal">
           <div>
             <h2 className="text-2xl sm:text-3xl font-black text-stone-900 font-serif-heading">
               What Our Customers Say
@@ -867,10 +869,12 @@ export default function HomePage() {
 
         {/* 3 Testimonials in a row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
+          {testimonials.map((t, idx) => (
             <div
               key={t.id}
-              className="bg-white p-6 sm:p-7 rounded-2xl border border-stone-200/90 shadow-xs flex flex-col justify-between space-y-5"
+              className={`bg-white p-6 sm:p-7 rounded-2xl border border-stone-200/90 shadow-xs flex flex-col justify-between space-y-5 reveal ${
+                idx === 0 ? 'delay-100' : idx === 1 ? 'delay-200' : 'delay-300'
+              }`}
             >
               <div className="space-y-3">
                 {/* Gold Quote Mark matching template */}
@@ -901,49 +905,6 @@ export default function HomePage() {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* 10. CALL TO ACTION BANNER (Dark textured tiler background) */}
-      <section className="relative py-14 bg-stone-950 text-white overflow-hidden">
-        {/* Background image of skilled tiler laying tile with glove */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop"
-            alt="Tile fixing work"
-            fill
-            className="object-cover object-center opacity-25"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/90 to-stone-950/70"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-2xl space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-black font-serif-heading text-white tracking-tight">
-              Let&apos;s Build Stronger Spaces Together
-            </h2>
-            <p className="text-stone-300 text-xs sm:text-sm leading-relaxed">
-              Get in touch with our team for product enquiries, dealer opportunities or technical support.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <button
-                type="button"
-                onClick={() => openQuote('Project Quotation')}
-                className="px-6 py-2.5 bg-[#c5832b] hover:bg-[#b07220] text-white font-bold rounded-lg text-xs sm:text-sm shadow-xs transition-colors flex items-center gap-1.5 cursor-pointer"
-              >
-                <span>Get a Quote</span>
-                <ChevronRight className="w-4 h-4" />
-              </button>
-
-              <Link
-                href="/become-a-dealer"
-                className="px-6 py-2.5 bg-stone-900 hover:bg-stone-800 text-stone-200 border border-stone-700 font-bold rounded-lg text-xs sm:text-sm transition-colors"
-              >
-                Become a Dealer
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
 

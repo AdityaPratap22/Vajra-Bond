@@ -56,7 +56,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           
           {/* Left Column: Product Imagery */}
-          <div className="lg:col-span-5 flex flex-col items-center">
+          <div className="lg:col-span-5 flex flex-col items-center reveal-left">
             <div className="relative w-full aspect-[3/2] bg-stone-100 rounded-3xl overflow-hidden border border-stone-200 shadow-xl">
               <Image
                 src={product.image}
@@ -86,7 +86,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
           </div>
 
           {/* Right Column: Key Details & Actions */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 reveal-right delay-100">
             <div>
               <div className="flex items-center gap-2 text-amber-700 text-xs font-bold uppercase tracking-wider mb-2">
                 <Sparkles className="w-4 h-4" />
@@ -154,7 +154,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
       </section>
 
       {/* TABS SECTION */}
-      <section className="bg-white border-y border-stone-200 py-10 sm:py-14">
+      <section className="bg-white border-y border-stone-200 py-10 sm:py-14 reveal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Tab Navigation matching template */}

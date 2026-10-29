@@ -4,6 +4,8 @@ import { Suspense } from 'react';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ScrollAnimationObserver from '@/components/ScrollAnimationObserver';
+import FloatingSocialButtons from '@/components/FloatingSocialButtons';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -20,7 +22,13 @@ export const metadata: Metadata = {
   description: 'Vajra Bond delivers high-performance polymer-modified tile adhesives, stone bonding solutions, and grouts conforming to IS: 15477:2019 and EN 12004 standards.',
   keywords: 'tile adhesive, vitrified tile adhesive, vajra bond, tile on tile, IS 15477, ceramic tile adhesive, marble adhesive, faridabad tile chemical, polymer tile mortar',
   icons: {
-    icon: '/images/logo.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
 };
 
@@ -32,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}>
       <body className="min-h-screen flex flex-col bg-white text-stone-900 antialiased selection:bg-amber-100 selection:text-amber-900">
+        <ScrollAnimationObserver />
         <Suspense fallback={<div className="h-20 bg-white" />}>
           <Navbar />
         </Suspense>
@@ -39,6 +48,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <FloatingSocialButtons />
       </body>
     </html>
   );

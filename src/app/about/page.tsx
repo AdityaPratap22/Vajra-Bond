@@ -37,7 +37,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-900/90 to-stone-950/80"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left reveal">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             ABOUT VAJRA BOND
@@ -73,7 +73,7 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-6 reveal-left">
             <div>
               <span className="text-amber-700 text-xs font-bold uppercase tracking-wider block mb-2">
                 Our Genesis & Evolution
@@ -118,7 +118,7 @@ export default function AboutPage() {
           </div>
 
           {/* Branded Office Image */}
-          <div className="lg:col-span-6 relative">
+          <div className="lg:col-span-6 relative reveal-right delay-150">
             <div className="relative h-[360px] sm:h-[420px] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-stone-900">
               <Image
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop"
@@ -160,7 +160,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {/* Vision */}
-            <div className="p-8 rounded-2xl bg-amber-50/60 border border-amber-200/80 relative overflow-hidden group hover:shadow-lg transition-shadow">
+            <div className="p-8 rounded-2xl bg-amber-50/60 border border-amber-200/80 relative overflow-hidden group hover:shadow-lg transition-shadow reveal delay-100">
               <div className="w-12 h-12 rounded-xl bg-amber-600 text-white flex items-center justify-center mb-5 shadow-sm">
                 <Compass className="w-6 h-6" />
               </div>
@@ -171,7 +171,7 @@ export default function AboutPage() {
             </div>
 
             {/* Mission */}
-            <div className="p-8 rounded-2xl bg-stone-50 border border-stone-200/80 relative overflow-hidden group hover:shadow-lg transition-shadow">
+            <div className="p-8 rounded-2xl bg-stone-50 border border-stone-200/80 relative overflow-hidden group hover:shadow-lg transition-shadow reveal delay-200">
               <div className="w-12 h-12 rounded-xl bg-stone-900 text-amber-400 flex items-center justify-center mb-5 shadow-sm">
                 <Target className="w-6 h-6" />
               </div>
@@ -187,7 +187,7 @@ export default function AboutPage() {
 
       {/* WHY CHOOSE VAJRA BOND PILLARS */}
       <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-14 reveal">
           <span className="text-amber-700 text-xs font-bold uppercase tracking-wider block mb-2">
             The Vajra Advantage
           </span>
@@ -200,7 +200,7 @@ export default function AboutPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-xs hover:border-amber-400 hover:shadow-md transition-all text-center sm:text-left">
+          <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-xs hover:border-amber-400 hover:shadow-md transition-all text-center sm:text-left reveal delay-100">
             <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4 mx-auto sm:mx-0">
               <ShieldCheck className="w-6 h-6" />
             </div>
@@ -210,7 +210,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-xs hover:border-amber-400 hover:shadow-md transition-all text-center sm:text-left">
+          <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-xs hover:border-amber-400 hover:shadow-md transition-all text-center sm:text-left reveal delay-150">
             <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4 mx-auto sm:mx-0">
               <FlaskConical className="w-6 h-6" />
             </div>
@@ -220,7 +220,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-xs hover:border-amber-400 hover:shadow-md transition-all text-center sm:text-left">
+          <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-xs hover:border-amber-400 hover:shadow-md transition-all text-center sm:text-left reveal delay-200">
             <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4 mx-auto sm:mx-0">
               <Users className="w-6 h-6" />
             </div>
@@ -230,7 +230,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-xs hover:border-amber-400 hover:shadow-md transition-all text-center sm:text-left">
+          <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-xs hover:border-amber-400 hover:shadow-md transition-all text-center sm:text-left reveal delay-250">
             <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4 mx-auto sm:mx-0">
               <Factory className="w-6 h-6" />
             </div>
@@ -244,7 +244,7 @@ export default function AboutPage() {
 
       {/* COMMITMENT BANNER */}
       <section className="relative py-16 bg-stone-950 text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal">
           <span className="text-amber-400 text-xs font-bold uppercase tracking-widest block mb-2">
             The Vajra Bond Guarantee
           </span>

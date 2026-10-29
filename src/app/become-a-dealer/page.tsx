@@ -10,15 +10,14 @@ import {
   MapPin, 
   Truck, 
   Award, 
-  ShieldCheck, 
-  Send 
+  ShieldCheck 
 } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function BecomeADealerPage() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    email: '',
     city: '',
     state: 'Delhi-NCR',
     businessName: '',
@@ -28,15 +27,31 @@ export default function BecomeADealerPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [whatsappLink, setWhatsappLink] = useState('');
+
+  const buildWhatsappUrl = () => {
+    const text =
+      `*New Dealership Application - Vajra Bond*\n\n` +
+      `• *Contact Person:* ${formData.name || 'Not provided'}\n` +
+      `• *Mobile / WhatsApp:* ${formData.phone || 'Not provided'}\n` +
+      `• *Firm / Business Name:* ${formData.businessName || 'Not provided'}\n` +
+      `• *City / District:* ${formData.city || 'Not provided'}\n` +
+      `• *State / Territory:* ${formData.state}\n` +
+      `• *Business Type:* ${formData.businessType}\n` +
+      `• *Annual Turnover:* ${formData.turnover}\n` +
+      (formData.message ? `• *Warehouse/Notes:* ${formData.message}\n` : '');
+
+    return `https://wa.me/916395014392?text=${encodeURIComponent(text)}`;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 700);
+    const url = buildWhatsappUrl();
+    setWhatsappLink(url);
+    setSubmitted(true);
+    if (typeof window !== 'undefined') {
+      window.open(url, '_blank');
+    }
   };
 
   return (
@@ -44,7 +59,7 @@ export default function BecomeADealerPage() {
       
       {/* HEADER BANNER */}
       <section className="bg-stone-900 text-white py-16 lg:py-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left reveal">
           <div className="flex items-center justify-center sm:justify-start gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
             <Award className="w-4 h-4" />
             Distributor & Dealer Partnership Program
@@ -63,7 +78,7 @@ export default function BecomeADealerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div className="p-6 rounded-2xl bg-amber-50/50 border border-amber-200 flex items-start gap-4">
+            <div className="p-6 rounded-2xl bg-amber-50/50 border border-amber-200 flex items-start gap-4 reveal delay-100">
               <div className="w-12 h-12 rounded-xl bg-amber-600 text-white flex items-center justify-center shrink-0 shadow-xs">
                 <TrendingUp className="w-6 h-6" />
               </div>
@@ -75,7 +90,7 @@ export default function BecomeADealerPage() {
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-amber-50/50 border border-amber-200 flex items-start gap-4">
+            <div className="p-6 rounded-2xl bg-amber-50/50 border border-amber-200 flex items-start gap-4 reveal delay-200">
               <div className="w-12 h-12 rounded-xl bg-amber-600 text-white flex items-center justify-center shrink-0 shadow-xs">
                 <Percent className="w-6 h-6" />
               </div>
@@ -87,7 +102,7 @@ export default function BecomeADealerPage() {
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-amber-50/50 border border-amber-200 flex items-start gap-4">
+            <div className="p-6 rounded-2xl bg-amber-50/50 border border-amber-200 flex items-start gap-4 reveal delay-300">
               <div className="w-12 h-12 rounded-xl bg-amber-600 text-white flex items-center justify-center shrink-0 shadow-xs">
                 <Megaphone className="w-6 h-6" />
               </div>
@@ -108,70 +123,72 @@ export default function BecomeADealerPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Left Column: Dealership Application Form */}
-          <div className="lg:col-span-6 bg-white rounded-2xl border border-stone-200 p-6 sm:p-10 shadow-xs">
-            <h3 className="text-xl font-bold text-stone-900 mb-1">
-              Apply for Dealership
+          <div className="lg:col-span-6 bg-white rounded-2xl border border-stone-200 p-6 sm:p-10 shadow-xs reveal-left">
+            <div className="flex items-center gap-2 text-emerald-700 text-xs font-bold uppercase tracking-wider mb-1">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Direct WhatsApp Partnership Desk
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-stone-900 mb-1">
+              Apply for Dealership via WhatsApp
             </h3>
             <p className="text-xs text-stone-500 mb-6">
-              Complete the enquiry below. Our regional sales manager will arrange a direct meeting within 24 hours.
+              Complete the enquiry below to initiate a direct dealership dialogue on WhatsApp (+91 63950 14392) with our regional sales leadership.
             </p>
 
             {submitted ? (
-              <div className="py-12 text-center space-y-4">
+              <div className="py-10 text-center space-y-4">
                 <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h4 className="text-2xl font-bold text-stone-900">Dealership Application Received!</h4>
+                <h4 className="text-2xl font-bold text-stone-900">Connecting to WhatsApp...</h4>
                 <p className="text-stone-600 text-sm max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong>{formData.name}</strong>. We look forward to partnering with <strong>{formData.businessName || 'your enterprise'}</strong> in <strong>{formData.city}</strong>. Our state distributor manager will contact you at <strong>{formData.phone}</strong>.
+                  Thank you, <strong>{formData.name}</strong>. If WhatsApp did not open automatically, click below to send your dealership application directly to <strong>+91 63950 14392</strong>.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="mt-4 px-6 py-2.5 bg-amber-600 text-white font-bold rounded-xl text-xs"
-                >
-                  Submit Another Application
-                </button>
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all text-sm"
+                  >
+                    <WhatsAppIcon className="w-5 h-5" variant="official" />
+                    <span>Open WhatsApp Chat</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setSubmitted(false)}
+                    className="px-5 py-3 border border-stone-300 rounded-xl text-stone-700 hover:bg-stone-50 font-medium text-xs sm:text-sm"
+                  >
+                    Submit Another Application
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">
-                    Contact Person Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Ramesh Aggarwal"
-                    className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:bg-white"
-                  />
-                </div>
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">
-                      Mobile / WhatsApp *
+                      Contact Person Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="e.g. Ramesh Aggarwal"
+                      className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:bg-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">
+                      WhatsApp / Mobile *
                     </label>
                     <input
                       type="tel"
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 81300 99534"
-                      className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:bg-white"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="ramesh@aggarwaltraders.com"
+                      placeholder="+91 98765 43210"
                       className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:bg-white"
                     />
                   </div>
@@ -256,11 +273,10 @@ export default function BecomeADealerPage() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    disabled={loading}
-                    className="w-full py-3.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-sm shadow-md transition-all cursor-pointer disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="w-full py-3.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-sm shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2.5"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>{loading ? 'Submitting Application...' : 'Submit Dealership Enquiry'}</span>
+                    <WhatsAppIcon className="w-5 h-5" variant="official" />
+                    <span>Submit Application via WhatsApp</span>
                   </button>
                 </div>
               </form>
@@ -268,7 +284,7 @@ export default function BecomeADealerPage() {
           </div>
 
           {/* Right Column: Dealer Network Map & Highlights */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-6 reveal-right delay-100">
             
             <div className="bg-white rounded-2xl border border-stone-200 p-6 sm:p-8 shadow-xs">
               <h3 className="text-xl font-bold text-stone-900 mb-2 flex items-center gap-2">

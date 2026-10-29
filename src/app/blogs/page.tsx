@@ -6,18 +6,16 @@ import Image from 'next/image';
 import { blogPosts } from '@/data/blogs';
 import { Search, Calendar, Clock, ArrowRight, BookOpen, ChevronLeft, ChevronRight, FileText } from 'lucide-react';
 
-const CATEGORIES = ['All', 'Technical Guide', 'Installation Guide', 'Tips & Tricks', 'Industry Insights'] as const;
 const POSTS_PER_PAGE = 12;
 
 export default function BlogsPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Reset to page 1 on filter or search change
+  // Reset to page 1 on search change
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory, searchQuery]);
+  }, [searchQuery]);
 
   const featuredPost = useMemo(() => {
     return blogPosts.find((p) => p.featured) || blogPosts[0];
@@ -25,16 +23,14 @@ export default function BlogsPage() {
 
   const filteredPosts = useMemo(() => {
     return blogPosts.filter((post) => {
-      const matchesCategory =
-        selectedCategory === 'All' || post.category === selectedCategory;
       const matchesSearch =
         searchQuery.trim() === '' ||
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
-      return matchesCategory && matchesSearch;
+      return matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [searchQuery]);
 
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
 
@@ -93,7 +89,7 @@ export default function BlogsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold mb-4 uppercase tracking-wider">
             <BookOpen className="w-3.5 h-3.5" />
             <span>500+ Technical Articles & Standards Guides</span>
@@ -122,26 +118,9 @@ export default function BlogsPage() {
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 w-full flex-1">
         
-        {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
-                selectedCategory === cat
-                  ? 'bg-[#c5832b] text-white shadow-sm'
-                  : 'bg-white text-stone-700 border border-stone-200 hover:border-amber-400 hover:text-amber-800'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Featured Post Card (only shown on 'All' on page 1 when not searching) */}
-        {selectedCategory === 'All' && !searchQuery.trim() && currentPage === 1 && featuredPost && (
-          <div className="mb-12">
+        {/* Featured Post Card (only shown on page 1 when not searching) */}
+        {!searchQuery.trim() && currentPage === 1 && featuredPost && (
+          <div className="mb-12 reveal">
             <div className="text-xs font-bold uppercase tracking-wider text-amber-700 mb-3 flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-amber-500"></span>
               Featured Pillar Guide
@@ -180,17 +159,6 @@ export default function BlogsPage() {
                     <p className="text-xs sm:text-sm text-stone-600 leading-relaxed line-clamp-3">
                       {featuredPost.excerpt}
                     </p>
-
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      {featuredPost.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-stone-100 text-stone-600"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
                   </div>
 
                   <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
@@ -226,10 +194,10 @@ export default function BlogsPage() {
 
         {/* Section Header & Count */}
         <div className="space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-stone-200 gap-2">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-stone-200 gap-2 reveal">
             <div>
               <h3 className="text-lg font-black text-stone-900">
-                {selectedCategory === 'All' ? 'All Guides & Articles' : `${selectedCategory}`}
+                All Guides & Articles
               </h3>
               <p className="text-xs text-stone-500 mt-0.5">
                 Showing {(currentPage - 1) * POSTS_PER_PAGE + 1}–{Math.min(currentPage * POSTS_PER_PAGE, filteredPosts.length)} of {filteredPosts.length} articles
@@ -251,24 +219,23 @@ export default function BlogsPage() {
               </p>
               <button
                 type="button"
-                onClick={() => {
-                  setSelectedCategory('All');
-                  setSearchQuery('');
-                }}
+                onClick={() => setSearchQuery('')}
                 className="mt-4 px-4 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
               >
-                Reset Filters
+                Clear Search
               </button>
             </div>
           ) : (
             <>
               {/* Grid of Articles */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {paginatedPosts.map((post) => (
+                {paginatedPosts.map((post, idx) => (
                   <Link
                     key={post.slug}
                     href={`/blogs/${post.slug}`}
-                    className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                    className={`group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between reveal ${
+                      idx % 3 === 0 ? 'delay-100' : idx % 3 === 1 ? 'delay-200' : 'delay-300'
+                    }`}
                   >
                     <div>
                       {/* Cover Image */}

@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { blogPosts, BlogPost } from '@/data/blogs';
 import { getBlogPostBySlug } from '@/lib/blogs-server';
 import { products } from '@/data/products';
-import { ChevronRight, Home, Calendar, Clock, ArrowLeft, Tag, CheckCircle2, PackageCheck } from 'lucide-react';
+import { ChevronRight, Home, Calendar, Clock, ArrowLeft, CheckCircle2, PackageCheck } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -89,7 +89,7 @@ export default async function BlogPostPage({
         </Link>
 
         {/* Header Metadata */}
-        <div className="space-y-4">
+        <div className="space-y-4 reveal">
           <div className="flex flex-wrap items-center gap-3 text-xs text-stone-500">
             <span className="flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5" />
@@ -128,7 +128,7 @@ export default async function BlogPostPage({
         </div>
 
         {/* Featured Image */}
-        <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-lg mt-8 mb-10 border border-stone-200 bg-stone-100">
+        <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-lg mt-8 mb-10 border border-stone-200 bg-stone-100 reveal-zoom delay-100">
           <Image
             src={post.coverImage}
             alt={post.title}
@@ -139,7 +139,7 @@ export default async function BlogPostPage({
         </div>
 
         {/* Article Body */}
-        <div className="space-y-8 text-stone-800 leading-relaxed text-sm sm:text-base">
+        <div className="space-y-8 text-stone-800 leading-relaxed text-sm sm:text-base reveal">
           {post.content.map((section, idx) => (
             <div key={idx} className="space-y-3">
               {section.heading && (
@@ -164,25 +164,9 @@ export default async function BlogPostPage({
           ))}
         </div>
 
-        {/* Tags */}
-        <div className="flex flex-wrap items-center gap-2 pt-8 mt-10 border-t border-stone-200">
-          <span className="text-xs font-bold text-stone-500 flex items-center gap-1">
-            <Tag className="w-3.5 h-3.5" />
-            Tags:
-          </span>
-          {post.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-700"
-            >
-              #{tag}
-            </span>
-          ))}
-        </div>
-
         {/* Recommended Products Callout */}
         {relatedProducts.length > 0 && (
-          <div className="mt-12 bg-white rounded-2xl p-6 sm:p-8 border border-stone-200 shadow-sm space-y-4">
+          <div className="mt-12 bg-white rounded-2xl p-6 sm:p-8 border border-stone-200 shadow-sm space-y-4 reveal">
             <div className="flex items-center gap-2 text-stone-900 font-bold text-base sm:text-lg">
               <PackageCheck className="w-5 h-5 text-[#c5832b]" />
               <span>Recommended Vajra Bond Products for this Application</span>
@@ -221,7 +205,7 @@ export default async function BlogPostPage({
 
         {/* Other Articles Section */}
         {otherPosts.length > 0 && (
-          <div className="mt-16 pt-10 border-t border-stone-200 space-y-6">
+          <div className="mt-16 pt-10 border-t border-stone-200 space-y-6 reveal">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-black text-stone-900">
                 More Articles & Insights

@@ -187,7 +187,7 @@ export default function ResourceViewerModal({
         {/* Modal Footer */}
         <div className="bg-white p-4 border-t border-stone-200 flex items-center justify-between">
           <p className="text-xs text-stone-500">
-            For specific project engineering consultations, contact <a href="mailto:technical@vajrabond.com" className="text-amber-700 underline">technical@vajrabond.com</a>
+            For specific project engineering consultations, contact <a href="tel:+916395014392" className="text-amber-700 underline font-semibold">+91 63950 14392</a>
           </p>
           <div className="flex items-center gap-3">
             <button

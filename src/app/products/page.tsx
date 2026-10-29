@@ -43,7 +43,7 @@ export default function ProductsPage() {
       
       {/* HEADER BANNER */}
       <section className="bg-stone-900 text-white py-16 lg:py-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left reveal">
           <div className="flex items-center justify-center sm:justify-start gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
             <Layers className="w-4 h-4" />
             Vajra Bond Product Portfolio
@@ -130,10 +130,12 @@ export default function ProductsPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map((product) => (
+            {filteredProducts.map((product, idx) => (
               <div
                 key={product.id}
-                className="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between group w-full"
+                className={`bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between group w-full reveal ${
+                  idx % 3 === 0 ? 'delay-100' : idx % 3 === 1 ? 'delay-200' : 'delay-300'
+                }`}
               >
                 {/* Full-bleed Uncropped Visual Packaging Top (3:2 Aspect Ratio) */}
                 <div className="relative w-full aspect-[3/2] overflow-hidden bg-stone-100 border-b border-stone-200/80">
