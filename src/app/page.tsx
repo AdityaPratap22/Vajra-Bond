@@ -16,8 +16,12 @@ import {
   Sparkles,
   Leaf,
   CheckCircle,
-  Star
+  Star,
+  Calendar,
+  Clock,
+  BookOpen
 } from 'lucide-react';
+import { blogPosts } from '@/data/blogs';
 import QuoteModal from '@/components/QuoteModal';
 
 export default function HomePage() {
@@ -230,11 +234,11 @@ export default function HomePage() {
           
           {/* 1. VB-1001 Standard Tile Adhesive */}
           <div className="flex flex-col items-center text-center group">
-            <Link href="/products/vb-1001-standard-tile-adhesive" className="w-full flex justify-center">
+            <Link href="/products/vb-1001-floor-wall-tile-adhesive" className="w-full flex justify-center">
               <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
                   src="/images/products/vb-1001-front.jpg"
-                  alt="VB-1001 Standard Tile Adhesive"
+                  alt="Tile Adhesive for Floor and Wall Tiles"
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
@@ -249,14 +253,14 @@ export default function HomePage() {
                 VB-1001
               </span>
               <h3 className="text-sm sm:text-base font-bold text-stone-900 mt-0.5 leading-snug">
-                Standard Tile Adhesive
+                Tile Adhesive for Floor & Wall Tiles
               </h3>
               <p className="text-[11px] sm:text-xs text-stone-500 mt-1 min-h-[32px] line-clamp-2">
-                For ceramic & vitrified tiles (indoor use)
+                For ceramic & clay tiles (indoor floors & walls)
               </p>
             </div>
             <Link
-              href="/products/vb-1001-standard-tile-adhesive"
+              href="/products/vb-1001-floor-wall-tile-adhesive"
               className="mt-2.5 text-xs font-bold text-[#c5832b] hover:text-[#b07220] flex items-center gap-1 group-hover:translate-x-1 transition-transform"
             >
               <span>View Details</span>
@@ -264,13 +268,13 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* 2. VB-2002 Flexi Tile Adhesive */}
+          {/* 2. VB-2002 Ceramic and Vitrified Tile Adhesive */}
           <div className="flex flex-col items-center text-center group">
-            <Link href="/products/vb-2002-flexi-tile-adhesive" className="w-full flex justify-center">
+            <Link href="/products/vb-2002-ceramic-vitrified-tile-adhesive" className="w-full flex justify-center">
               <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
                   src="/images/products/vb-2002-front.jpg"
-                  alt="VB-2002 Flexi Tile Adhesive"
+                  alt="Tile Adhesive for Ceramic and Vitrified Tiles"
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
@@ -285,14 +289,14 @@ export default function HomePage() {
                 VB-2002
               </span>
               <h3 className="text-sm sm:text-base font-bold text-stone-900 mt-0.5 leading-snug">
-                Flexi Tile Adhesive
+                Tile Adhesive for Ceramic & Vitrified
               </h3>
               <p className="text-[11px] sm:text-xs text-stone-500 mt-1 min-h-[32px] line-clamp-2">
-                High flexibility for walls and floors
+                Ideal for 2×4 vitrified tiles up to 10 feet height
               </p>
             </div>
             <Link
-              href="/products/vb-2002-flexi-tile-adhesive"
+              href="/products/vb-2002-ceramic-vitrified-tile-adhesive"
               className="mt-2.5 text-xs font-bold text-[#c5832b] hover:text-[#b07220] flex items-center gap-1 group-hover:translate-x-1 transition-transform"
             >
               <span>View Details</span>
@@ -302,11 +306,11 @@ export default function HomePage() {
 
           {/* 3. VB-2004 Ultra Tile-on-Tile Adhesive */}
           <div className="flex flex-col items-center text-center group">
-            <Link href="/products/vb-2004-ultra-tile-adhesive" className="w-full flex justify-center">
+            <Link href="/products/vb-2004-floor-wall-tile-on-tile-adhesive" className="w-full flex justify-center">
               <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
                   src="/images/products/vb-2004-front.jpg"
-                  alt="VB-2004 Ultra Tile-on-Tile Adhesive"
+                  alt="Tile Adhesive for Floor, Wall & Tile on Tile"
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
@@ -321,14 +325,14 @@ export default function HomePage() {
                 VB-2004
               </span>
               <h3 className="text-sm sm:text-base font-bold text-stone-900 mt-0.5 leading-snug">
-                Ultra Tile Adhesive
+                Tile Adhesive for Floor, Wall & Tile on Tile
               </h3>
               <p className="text-[11px] sm:text-xs text-stone-500 mt-1 min-h-[32px] line-clamp-2">
-                Floor, wall & tile-on-tile renovation
+                Floor, wall & tile-on-tile renovation without demolition
               </p>
             </div>
             <Link
-              href="/products/vb-2004-ultra-tile-adhesive"
+              href="/products/vb-2004-floor-wall-tile-on-tile-adhesive"
               className="mt-2.5 text-xs font-bold text-[#c5832b] hover:text-[#b07220] flex items-center gap-1 group-hover:translate-x-1 transition-transform"
             >
               <span>View Details</span>
@@ -338,11 +342,11 @@ export default function HomePage() {
 
           {/* 4. VB-3003 Large Format Tile & Stone Adhesive */}
           <div className="flex flex-col items-center text-center group">
-            <Link href="/products/vb-3003-large-format-tile-adhesive" className="w-full flex justify-center">
+            <Link href="/products/vb-3003-large-format-tile-stone-adhesive" className="w-full flex justify-center">
               <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
                   src="/images/products/vb-3003-front.jpg"
-                  alt="VB-3003 Large Format Tile & Stone Adhesive"
+                  alt="Tile Adhesive for Large Format Tile & Stone"
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
@@ -364,7 +368,7 @@ export default function HomePage() {
               </p>
             </div>
             <Link
-              href="/products/vb-3003-large-format-tile-adhesive"
+              href="/products/vb-3003-large-format-tile-stone-adhesive"
               className="mt-2.5 text-xs font-bold text-[#c5832b] hover:text-[#b07220] flex items-center gap-1 group-hover:translate-x-1 transition-transform"
             >
               <span>View Details</span>
@@ -733,106 +737,96 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. FEATURED PROJECTS */}
-      <section className="py-14 bg-stone-50/50 border-t border-stone-200">
+      {/* LATEST ARTICLES & KNOWLEDGE HUB */}
+      <section className="py-14 sm:py-18 bg-stone-100/60 border-y border-stone-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
             <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[#c5832b] text-xs font-bold uppercase tracking-wider mb-2">
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Knowledge & Standards</span>
+              </div>
               <h2 className="text-2xl sm:text-3xl font-black text-stone-900 font-serif-heading">
-                Featured Projects
+                Latest Articles & Guides
               </h2>
               <p className="text-stone-500 text-xs sm:text-sm mt-1">
-                Vajra Bond is trusted across residential, commercial and infrastructure projects.
+                Technical insights, IS 15477 standards, and expert tiling advice from our engineering team.
               </p>
             </div>
             <Link
-              href="/projects"
+              href="/blogs"
               className="text-xs sm:text-sm font-bold text-[#c5832b] hover:text-[#b07220] flex items-center gap-1 group"
             >
-              <span>View All Projects</span>
+              <span>View All Articles</span>
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          {/* 5 Project Cards in a row matching template */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            
-            <Link href="/projects" className="group">
-              <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden bg-stone-200 shadow-xs">
-                <Image
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop"
-                  alt="Luxury Residence"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xs font-bold text-stone-900 mt-2.5">
-                Luxury Residence
-              </h3>
-              <p className="text-[11px] text-stone-500">New Delhi</p>
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {blogPosts.slice(0, 3).map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blogs/${post.slug}`}
+                className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="relative aspect-[16/10] w-full bg-stone-100 overflow-hidden">
+                    <Image
+                      src={post.coverImage}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
 
-            <Link href="/projects" className="group">
-              <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden bg-stone-200 shadow-xs">
-                <Image
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop"
-                  alt="Commercial Complex"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xs font-bold text-stone-900 mt-2.5">
-                Commercial Complex
-              </h3>
-              <p className="text-[11px] text-stone-500">Gurgaon</p>
-            </Link>
+                  <div className="p-5 sm:p-6 space-y-3">
+                    <div className="flex items-center gap-3 text-xs text-stone-400">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        {post.date}
+                      </span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" />
+                        {post.readTime}
+                      </span>
+                    </div>
 
-            <Link href="/projects" className="group">
-              <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden bg-stone-200 shadow-xs">
-                <Image
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop"
-                  alt="Hotel & Hospitality"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xs font-bold text-stone-900 mt-2.5">
-                Hotel & Hospitality
-              </h3>
-              <p className="text-[11px] text-stone-500">Jaipur</p>
-            </Link>
+                    <h3 className="text-base font-bold text-stone-900 group-hover:text-[#c5832b] transition-colors leading-snug line-clamp-2">
+                      {post.title}
+                    </h3>
 
-            <Link href="/projects" className="group">
-              <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden bg-stone-200 shadow-xs">
-                <Image
-                  src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop"
-                  alt="Industrial Facility"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xs font-bold text-stone-900 mt-2.5">
-                Industrial Facility
-              </h3>
-              <p className="text-[11px] text-stone-500">Noida</p>
-            </Link>
+                    <p className="text-xs text-stone-600 line-clamp-2 leading-relaxed">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                </div>
 
-            <Link href="/projects" className="group">
-              <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden bg-stone-200 shadow-xs">
-                <Image
-                  src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=600&auto=format&fit=crop"
-                  alt="Exterior Facade"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xs font-bold text-stone-900 mt-2.5">
-                Exterior Facade
-              </h3>
-              <p className="text-[11px] text-stone-500">Bangalore</p>
-            </Link>
+                <div className="p-5 sm:p-6 pt-0">
+                  <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="relative w-6 h-6 rounded-full overflow-hidden bg-stone-200">
+                        <Image
+                          src={post.author.avatar}
+                          alt={post.author.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <span className="text-xs font-semibold text-stone-800 truncate max-w-[120px]">
+                        {post.author.name}
+                      </span>
+                    </div>
 
+                    <span className="text-xs font-bold text-[#c5832b] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      Read
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
 
         </div>

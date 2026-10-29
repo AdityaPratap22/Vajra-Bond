@@ -60,6 +60,11 @@ export default function Footer() {
                   Applications
                 </Link>
               </li>
+              <li>
+                <Link href="/blogs" className="hover:text-amber-400 transition-colors">
+                  Blogs & Guides
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -175,7 +180,18 @@ export default function Footer() {
 
         {/* Bottom Copyright & Legal */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
-          <p>© 2024 Vajra Bond. All Rights Reserved</p>
+          <p>
+            © 2026{' '}
+            <a
+              href="https://businessvolunteers.online"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone-400 hover:text-amber-400 transition-colors font-medium underline underline-offset-2"
+            >
+              Business Volunteers
+            </a>
+            . All Rights Reserved
+          </p>
           <div className="flex items-center gap-6">
             <Link href="/resources" className="hover:text-stone-300 transition-colors">
               Privacy Policy

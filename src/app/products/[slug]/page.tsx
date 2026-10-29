@@ -5,6 +5,9 @@ import ProductDetailView from '@/components/ProductDetailView';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
+  if (products.length === 0) {
+    return [{ slug: 'catalog-updating' }];
+  }
   return products.map((product) => ({
     slug: product.slug,
   }));

@@ -16,7 +16,7 @@ export default function QuoteModal({ isOpen, onClose, defaultProduct }: QuoteMod
     phone: '',
     email: '',
     city: '',
-    product: defaultProduct || 'VB-2002 Flexi Tile Adhesive',
+    product: defaultProduct || 'Need Technical Recommendation',
     projectType: 'Residential',
     estimatedArea: '',
     message: ''

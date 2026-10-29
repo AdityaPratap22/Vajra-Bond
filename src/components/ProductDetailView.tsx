@@ -33,18 +33,18 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
   return (
     <div className="flex flex-col min-h-screen bg-stone-50/30">
       
-      {/* BREADCRUMB STRIP */}
-      <div className="bg-stone-100/80 border-b border-stone-200/80 py-3 px-4 sm:px-6 lg:px-8 text-xs text-stone-600">
-        <div className="max-w-7xl mx-auto flex items-center gap-2">
-          <Link href="/" className="hover:text-amber-700 flex items-center gap-1">
+      {/* BREADCRUMB STRIP - Seamless white background */}
+      <div className="bg-white border-b border-stone-200/80 min-h-[48px] flex items-center px-4 sm:px-6 lg:px-8 text-xs text-stone-600">
+        <div className="max-w-7xl mx-auto w-full flex items-center gap-2">
+          <Link href="/" className="hover:text-amber-700 flex items-center gap-1 text-stone-500 hover:text-stone-900 transition-colors shrink-0">
             <Home className="w-3.5 h-3.5" />
-            <span>Home</span>
+            <span className="hidden sm:inline">Home</span>
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
-          <Link href="/products" className="hover:text-amber-700">
+          <ChevronRight className="w-3.5 h-3.5 text-stone-400 shrink-0" />
+          <Link href="/products" className="hover:text-amber-700 text-stone-500 hover:text-stone-900 transition-colors shrink-0">
             Products
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
+          <ChevronRight className="w-3.5 h-3.5 text-stone-400 shrink-0" />
           <span className="font-semibold text-stone-900 truncate">
             {product.name}
           </span>
@@ -57,23 +57,15 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
           
           {/* Left Column: Product Imagery */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="relative w-full max-w-md h-[420px] sm:h-[480px] bg-gradient-to-b from-stone-100 to-white rounded-3xl border border-stone-200 p-8 flex items-center justify-center shadow-lg">
-              <span className="absolute top-5 left-5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">
-                {product.badge}
-              </span>
-              <span className="absolute top-5 right-5 text-xs font-semibold text-stone-500 bg-white px-2.5 py-1 rounded-md border border-stone-200 shadow-xs">
-                Net Wt: {product.packSize}
-              </span>
-
-              <div className="relative w-64 h-80 sm:w-72 sm:h-96">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain drop-shadow-xl"
-                  priority
-                />
-              </div>
+            <div className="relative w-full aspect-[3/2] bg-stone-100 rounded-3xl overflow-hidden border border-stone-200 shadow-xl">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-center"
+                priority
+              />
             </div>
 
             {/* Thumbnail Showcase / Certifications */}
@@ -103,9 +95,11 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
               <h1 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight">
                 {product.name}
               </h1>
-              <p className="text-base sm:text-lg text-amber-800 font-semibold mt-1">
-                {product.subtitle}
-              </p>
+              {product.subtitle && product.subtitle !== product.name && (
+                <p className="text-base sm:text-lg text-amber-800 font-semibold mt-1">
+                  {product.subtitle}
+                </p>
+              )}
             </div>
 
             <p className="text-stone-600 text-sm sm:text-base leading-relaxed">

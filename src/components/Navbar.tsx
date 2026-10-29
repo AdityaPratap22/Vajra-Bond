@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -12,29 +12,91 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
+  const isHomePage = pathname === '/';
+
+  // Scroll progress from 0 (top) to 1 (fully scrolled past threshold)
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const rafRef = useRef<number | null>(null);
+
+  const SCROLL_THRESHOLD = 80; // pixels to complete the animation
+
+  const handleScroll = useCallback(() => {
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      const progress = Math.min(scrollY / SCROLL_THRESHOLD, 1);
+      setScrollProgress(progress);
+      rafRef.current = null;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!isHomePage) {
+      setScrollProgress(1); // Non-homepage: always "collapsed"
+      return;
+    }
+
+    // Set initial scroll position (handles page refresh mid-scroll)
+    const initialProgress = Math.min(window.scrollY / SCROLL_THRESHOLD, 1);
+    setScrollProgress(initialProgress);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [isHomePage, handleScroll]);
+
+  // Derived animation values (0 = expanded cradle, 1 = flat/collapsed)
+  const p = scrollProgress;
+
+  // Logo size slightly decreases from 96px to 74px when moving up into the navbar
+  const logoSize = 96 - 22 * p;
+  // Logo vertical position: top goes from 100% (centered on border) to 50% (centered in navbar)
+  const logoTop = 100 - 50 * p;
+  // SVG cradle height: 58px → 0px
+  const cradleHeight = 58 * (1 - p);
+  // SVG arc radius: 56 → 500 (large = flat)
+  const arcRadius = 56 + 444 * p;
+  // Cradle opacity
+  const cradleOpacity = 1 - p;
+
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
     { name: 'Products', href: '/products' },
     { name: 'Applications', href: '/applications' },
-    { name: 'Projects', href: '/projects' },
+    { name: 'Blogs', href: '/blogs' },
     { name: 'Resources', href: '/resources' },
     { name: 'Contact', href: '/contact' },
   ];
+
+  // When fully collapsed (p=1), the logo sits inside the navbar
+  // When expanded (p=0), the logo hangs below on the border
 
   return (
     <>
       <header className="sticky top-0 z-40 bg-white border-b border-stone-200/90 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between relative">
           
-          {/* Logo Emblem - Positioned so the dots on the left & right of the logo align with the navbar border line */}
+          {/* Logo Emblem - Animated between cradle (homepage top) and inline (scrolled / other pages) */}
           <Link href="/" className="relative flex items-center h-full">
             
             {/* Wrapper maintaining width in navbar flow */}
-            <div className="relative flex items-center justify-center w-[128px] h-full">
+            <div className="relative flex items-center justify-center h-full"
+              style={{ width: '128px' }}
+            >
               
-              {/* Circular Emblem mathematically centered at the navbar bottom border line */}
-              <div className="absolute top-full -translate-y-1/2 left-1/2 -translate-x-1/2 w-[96px] h-[96px] shrink-0 z-20 drop-shadow-md">
+              {/* Circular Emblem - shifts from border-centered to navbar-centered */}
+              <div
+                className="absolute left-1/2 shrink-0 z-20 drop-shadow-md"
+                style={{
+                  width: `${logoSize}px`,
+                  height: `${logoSize}px`,
+                  top: `${logoTop}%`,
+                  transform: 'translateX(-50%) translateY(-50%)',
+                }}
+              >
                 <Image
                   src="/images/logo.png"
                   alt="Vajra Bond"
@@ -45,36 +107,48 @@ export default function Navbar() {
                 />
               </div>
 
-              {/* Semicircular Border Cradle concentric with the logo (R = 56px, uniform 8px gap) */}
-              <div className="absolute top-full -translate-y-[1px] left-1/2 -translate-x-1/2 w-[128px] h-[58px] pointer-events-none z-10">
-                <svg
-                  className="w-[128px] h-[58px] overflow-visible"
-                  viewBox="0 0 128 58"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+              {/* Semicircular Border Cradle - fades and flattens on scroll */}
+              {p < 1 && (
+                <div
+                  className="absolute left-1/2 -translate-x-1/2 pointer-events-none z-10"
+                  style={{
+                    top: 'calc(100% - 1px)',
+                    width: '128px',
+                    height: `${Math.max(cradleHeight, 2)}px`,
+                    opacity: cradleOpacity,
+                  }}
                 >
-                  {/* White background extension that covers straight border and extends navbar white area */}
-                  <path
-                    d="M 0 0
-                       L 8 0
-                       A 56 56 0 0 0 120 0
-                       L 128 0
-                       L 128 -8
-                       L 0 -8 Z"
-                    fill="white"
-                  />
-                  {/* Continuous 1px curved border contour matching navbar border-stone-200 */}
-                  <path
-                    d="M 0 0.5
-                       L 8 0.5
-                       A 56 56 0 0 0 120 0.5
-                       L 128 0.5"
-                    stroke="#e7e5e4"
-                    strokeWidth="1.2"
+                  <svg
+                    className="overflow-visible"
+                    style={{ width: '128px', height: `${Math.max(cradleHeight, 2)}px` }}
+                    viewBox={`0 0 128 ${Math.max(cradleHeight, 2)}`}
                     fill="none"
-                  />
-                </svg>
-              </div>
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none"
+                  >
+                    {/* White background extension that covers straight border */}
+                    <path
+                      d={`M 0 0
+                         L 8 0
+                         A ${arcRadius} ${arcRadius} 0 0 0 120 0
+                         L 128 0
+                         L 128 -8
+                         L 0 -8 Z`}
+                      fill="white"
+                    />
+                    {/* Curved border contour */}
+                    <path
+                      d={`M 0 0.5
+                         L 8 0.5
+                         A ${arcRadius} ${arcRadius} 0 0 0 120 0.5
+                         L 128 0.5`}
+                      stroke="#e7e5e4"
+                      strokeWidth="1.2"
+                      fill="none"
+                    />
+                  </svg>
+                </div>
+              )}
 
             </div>
 

@@ -97,7 +97,23 @@ export default function ProductsPage() {
 
       {/* PRODUCTS GRID */}
       <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1">
-        {filteredProducts.length === 0 ? (
+        {products.length === 0 ? (
+          <div className="text-center py-24 bg-white rounded-2xl border border-stone-200 p-8 max-w-lg mx-auto shadow-xs">
+            <div className="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-amber-200">
+              <Layers className="w-8 h-8 text-amber-600" />
+            </div>
+            <h3 className="text-xl font-bold text-stone-900">Products Coming Soon</h3>
+            <p className="text-stone-500 text-sm mt-2 leading-relaxed">
+              We are updating our official product range. Please check back soon or contact us directly for product enquiries.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-6 inline-flex items-center px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-xl transition-colors"
+            >
+              Contact Us for Enquiries
+            </Link>
+          </div>
+        ) : filteredProducts.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-2xl border border-stone-200 p-8">
             <Layers className="w-12 h-12 text-stone-300 mx-auto mb-3" />
             <h3 className="text-lg font-bold text-stone-800">No adhesives found matching your criteria</h3>
@@ -113,47 +129,45 @@ export default function ProductsPage() {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between group w-full"
               >
-                {/* Visual Packaging Card Top */}
-                <div className="p-6 bg-gradient-to-b from-stone-100/70 to-stone-50 flex flex-col items-center relative border-b border-stone-100">
-                  <span className="absolute top-4 left-4 px-2.5 py-1 rounded-md text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-300">
-                    {product.badge}
-                  </span>
-                  <span className="absolute top-4 right-4 text-[11px] font-semibold text-stone-500 bg-white px-2 py-0.5 rounded border border-stone-200">
-                    {product.packSize}
-                  </span>
-
-                  <div className="relative w-52 h-64 my-4 group-hover:scale-105 transition-transform duration-300">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      className="object-contain drop-shadow-lg"
-                    />
-                  </div>
-
-                  <div className="w-full text-center">
-                    <span className="text-[11px] font-bold text-amber-700 tracking-wider uppercase block">
-                      {product.standardType} • {product.enCode}
-                    </span>
-                    <h3 className="text-lg font-black text-stone-900 mt-1">
-                      {product.name}
-                    </h3>
-                  </div>
+                {/* Full-bleed Uncropped Visual Packaging Top (3:2 Aspect Ratio) */}
+                <div className="relative w-full aspect-[3/2] overflow-hidden bg-stone-100 border-b border-stone-200/80">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
 
-                {/* Details & Specs */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <p className="text-xs text-stone-600 leading-relaxed">
-                    {product.description}
-                  </p>
+                {/* Details & Specs Bottom */}
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                  {/* Title & Classification */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                      <span className="text-xs font-black text-amber-800 bg-amber-100/90 px-2.5 py-0.5 rounded-md border border-amber-300">
+                        {product.code}
+                      </span>
+                      <span className="text-[11px] font-bold text-stone-600 tracking-wider uppercase">
+                        {product.standardType} • {product.enCode}
+                      </span>
+                    </div>
+                    <h3 className="text-base sm:text-lg font-bold text-stone-900 leading-snug group-hover:text-amber-700 transition-colors">
+                      {product.name}
+                    </h3>
+                    <p className="text-xs text-stone-600 leading-relaxed mt-2 line-clamp-2">
+                      {product.description}
+                    </p>
+                  </div>
 
-                  <div className="space-y-2 text-xs text-stone-600 pt-2 border-t border-stone-100">
+                  {/* Highlights */}
+                  <div className="space-y-1.5 text-xs text-stone-600 pt-3 border-t border-stone-100">
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                       <span className="line-clamp-1">{product.keyFeatures[0]}</span>
@@ -168,6 +182,7 @@ export default function ProductsPage() {
                     </div>
                   </div>
 
+                  {/* Action Buttons */}
                   <div className="pt-3 grid grid-cols-2 gap-3 border-t border-stone-100">
                     <Link
                       href={`/products/${product.slug}`}

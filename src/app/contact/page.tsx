@@ -20,7 +20,7 @@ export default function ContactPage() {
     email: '',
     phone: '',
     enquiryType: 'Quotation Request',
-    product: 'VB-2002 Flexi Tile Adhesive',
+    product: 'General Product Enquiry',
     message: ''
   });
 
@@ -207,7 +207,7 @@ export default function ContactPage() {
                         email: '',
                         phone: '',
                         enquiryType: 'Quotation Request',
-                        product: 'VB-2002 Flexi Tile Adhesive',
+                        product: 'General Product Enquiry',
                         message: ''
                       });
                     }}
