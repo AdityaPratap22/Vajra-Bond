@@ -7,7 +7,6 @@ import {
   Clock, 
   CheckCircle2, 
   ShieldCheck, 
-  Sparkles,
   ExternalLink 
 } from 'lucide-react';
 import { products } from '@/data/products';
@@ -20,7 +19,7 @@ export default function ContactPage() {
     phone: '',
     city: '',
     enquiryType: 'Quotation Request',
-    product: 'General Product Enquiry',
+    product: `${products[0]?.code} - ${products[0]?.name}`,
     message: ''
   });
 
@@ -56,10 +55,6 @@ export default function ContactPage() {
       {/* HEADER BANNER */}
       <section className="bg-stone-900 text-white py-16 lg:py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left reveal">
-          <div className="flex items-center justify-center sm:justify-start gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
-            <Sparkles className="w-4 h-4" />
-            Direct Factory & Engineering Desk
-          </div>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
             Contact Us
           </h1>
@@ -73,54 +68,59 @@ export default function ContactPage() {
       <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
-          {/* Left Column: Office info & Map */}
-          <div className="lg:col-span-5 space-y-6 reveal-left">
+          {/* Left Column: Office & Contact Info */}
+          <div className="lg:col-span-5 space-y-6">
             <div className="bg-white rounded-2xl border border-stone-200 p-6 sm:p-8 shadow-xs space-y-6">
               
               <div>
-                <h3 className="text-lg font-bold text-stone-900 mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-stone-900 mb-3 pb-2 border-b border-stone-100 flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-amber-600" />
                   Our Registered Office & Plant
                 </h3>
                 <div className="text-xs sm:text-sm text-stone-700 space-y-1">
                   <p className="font-bold text-stone-900">Vajra Bond Pvt. Ltd.</p>
-                  <p className="pt-2 text-stone-600 leading-relaxed">
+                  <p className="pt-1 text-stone-600 leading-relaxed">
                     67, Tirkha Colony, Sector 2, Faridabad, Haryana 121004
                   </p>
                 </div>
               </div>
 
               <div className="pt-4 border-t border-stone-100 space-y-4">
+                {/* Phone */}
                 <div className="flex items-start gap-3 text-xs sm:text-sm">
                   <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 border border-amber-200">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-stone-500 text-xs block">Phone & WhatsApp</span>
+                    <span className="text-stone-500 text-xs block">Phone Support</span>
                     <a href="tel:+918130099534" className="font-bold text-stone-900 hover:text-amber-700 block">
                       +91 81300 99534
                     </a>
-                    <a href="tel:+916395014392" className="font-bold text-stone-900 hover:text-amber-700 block mt-0.5">
-                      +91 63950 14392
-                    </a>
                   </div>
                 </div>
 
+                {/* WhatsApp */}
                 <div className="flex items-start gap-3 text-xs sm:text-sm">
                   <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 border border-amber-200">
-                    <Phone className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4 fill-current text-amber-700" variant="monochrome" />
                   </div>
                   <div>
-                    <span className="text-stone-500 text-xs block">Direct Contact / WhatsApp</span>
-                    <a href="tel:+916395014392" className="font-bold text-stone-900 hover:text-amber-700 block">
+                    <span className="text-stone-500 text-xs block">WhatsApp Helpline</span>
+                    <a 
+                      href="https://wa.me/916395014392?text=Hello%20Vajra%20Bond%2C%20I%20would%20like%20to%20enquire%20about%20tile%20adhesives." 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="font-bold text-stone-900 hover:text-amber-700 block"
+                    >
                       +91 63950 14392
                     </a>
                   </div>
                 </div>
 
+                {/* Instagram */}
                 <div className="flex items-start gap-3 text-xs sm:text-sm">
-                  <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 overflow-hidden shadow-xs">
-                    <InstagramIcon className="w-9 h-9" />
+                  <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 border border-amber-200">
+                    <InstagramIcon className="w-4 h-4 fill-current text-amber-700" variant="glyph" />
                   </div>
                   <div>
                     <span className="text-stone-500 text-xs block">Instagram</span>
@@ -135,6 +135,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
+                {/* Website */}
                 <div className="flex items-start gap-3 text-xs sm:text-sm">
                   <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 border border-amber-200">
                     <ExternalLink className="w-4 h-4" />
@@ -152,6 +153,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
+                {/* Working Hours */}
                 <div className="flex items-start gap-3 text-xs sm:text-sm">
                   <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 border border-amber-200">
                     <Clock className="w-4 h-4" />
@@ -165,31 +167,6 @@ export default function ContactPage() {
               </div>
 
             </div>
-
-            {/* Stylized Map Card matching template */}
-            <div className="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-xs">
-              <div className="p-4 bg-stone-50 border-b border-stone-200 flex items-center justify-between">
-                <span className="text-xs font-bold text-stone-800 flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-amber-600" />
-                  Location Map: Ballabgarh, Faridabad Plant
-                </span>
-                <span className="text-[11px] text-amber-700 font-semibold">Delhi NCR Hub</span>
-              </div>
-              <div className="relative h-48 w-full bg-stone-200 flex items-center justify-center">
-                {/* Visual Map Representation */}
-                <iframe
-                  title="Vajra Bond Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14044.87102607997!2d77.3198!3d28.3375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdb69f64923e5%3A0x6b6cfa4c99778216!2sBallabhgarh%2C%20Faridabad%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="opacity-90"
-                ></iframe>
-              </div>
-            </div>
-
           </div>
 
           {/* Right Column: Interactive Form */}
@@ -233,7 +210,7 @@ export default function ContactPage() {
                           phone: '',
                           city: '',
                           enquiryType: 'Quotation Request',
-                          product: 'General Product Enquiry',
+                          product: `${products[0]?.code} - ${products[0]?.name}`,
                           message: ''
                         });
                       }}
@@ -282,7 +259,7 @@ export default function ContactPage() {
                         required
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                        placeholder="e.g. Faridabad / Delhi NCR"
+                        placeholder="e.g. Delhi NCR, Mumbai, Bengaluru, Lucknow..."
                         className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:bg-white"
                       />
                     </div>
@@ -316,11 +293,11 @@ export default function ContactPage() {
                         className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:bg-white"
                       >
                         {products.map((p) => (
-                          <option key={p.id} value={p.name}>
+                          <option key={p.id} value={`${p.code} - ${p.name}`}>
                             {p.code} - {p.name}
                           </option>
                         ))}
-                        <option value="Entire Product Range">Entire Product Range (Dealership)</option>
+                        <option value="Other">Other</option>
                       </select>
                     </div>
                   </div>

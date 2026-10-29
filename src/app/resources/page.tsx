@@ -41,10 +41,6 @@ export default function ResourcesPage() {
       {/* HEADER BANNER */}
       <section className="bg-stone-900 text-white py-16 lg:py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left reveal">
-          <div className="flex items-center justify-center sm:justify-start gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
-            <BookOpen className="w-4 h-4" />
-            Technical Documentation & Knowledge Center
-          </div>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
             Resources
           </h1>
@@ -55,7 +51,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* FILTER & SEARCH */}
-      <section className="bg-white border-b border-stone-200 sticky top-16 z-30 shadow-xs">
+      <section className="bg-white border-b border-stone-200 sticky top-20 sm:top-[88px] z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             

@@ -19,7 +19,8 @@ import {
   Star,
   Calendar,
   Clock,
-  BookOpen
+  MapPin,
+  Truck
 } from 'lucide-react';
 import { blogPosts } from '@/data/blogs';
 import QuoteModal from '@/components/QuoteModal';
@@ -95,7 +96,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Hero Content */}
-            <div className="lg:col-span-7 space-y-5 reveal-left">
+            <div className="lg:col-span-7 space-y-5 reveal-left" suppressHydrationWarning>
               <span className="text-[#c5832b] text-xs font-black tracking-widest uppercase block">
                 PREMIUM TILE ADHESIVES
               </span>
@@ -129,8 +130,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Card Overlay matching template */}
-            <div className="lg:col-span-5 flex justify-end reveal-right delay-200">
+            {/* Right Card Overlay matching template (Hidden on phone screens) */}
+            <div className="hidden sm:flex lg:col-span-5 justify-end reveal-right delay-200" suppressHydrationWarning>
               <div className="bg-stone-950/70 backdrop-blur-xs p-6 rounded-xl border border-stone-800/80 max-w-xs text-white relative">
                 <div className="absolute left-0 top-6 bottom-6 w-1 bg-[#c5832b] rounded-r"></div>
                 <div className="pl-4">
@@ -194,7 +195,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 reveal delay-300">
+            <div className="col-span-2 sm:col-span-1 flex items-center justify-center sm:justify-start gap-3 reveal delay-300">
               <div className="w-10 h-10 rounded-lg border border-[#c5832b]/60 flex items-center justify-center shrink-0 text-[#c5832b]">
                 <Users className="w-5 h-5 stroke-[1.75]" />
               </div>
@@ -230,12 +231,12 @@ export default function HomePage() {
         </div>
 
         {/* Real Front Profile Product Sacks */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 lg:gap-8">
           
           {/* 1. VB-1001 Standard Tile Adhesive */}
           <div className="flex flex-col items-center text-center group reveal delay-100">
             <Link href="/products/vb-1001-floor-wall-tile-adhesive" className="w-full flex justify-center">
-              <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
+              <div className="relative w-full max-w-[208px] aspect-[3/4] rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
                   src="/images/products/vb-1001-front.jpg"
                   alt="Tile Adhesive for Floor and Wall Tiles"
@@ -271,7 +272,7 @@ export default function HomePage() {
           {/* 2. VB-2002 Ceramic and Vitrified Tile Adhesive */}
           <div className="flex flex-col items-center text-center group reveal delay-200">
             <Link href="/products/vb-2002-ceramic-vitrified-tile-adhesive" className="w-full flex justify-center">
-              <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
+              <div className="relative w-full max-w-[208px] aspect-[3/4] rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
                   src="/images/products/vb-2002-front.jpg"
                   alt="Tile Adhesive for Ceramic and Vitrified Tiles"
@@ -307,7 +308,7 @@ export default function HomePage() {
           {/* 3. VB-2004 Ultra Tile-on-Tile Adhesive */}
           <div className="flex flex-col items-center text-center group reveal delay-300">
             <Link href="/products/vb-2004-floor-wall-tile-on-tile-adhesive" className="w-full flex justify-center">
-              <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
+              <div className="relative w-full max-w-[208px] aspect-[3/4] rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
                   src="/images/products/vb-2004-front.jpg"
                   alt="Tile Adhesive for Floor, Wall & Tile on Tile"
@@ -343,7 +344,7 @@ export default function HomePage() {
           {/* 4. VB-3003 Large Format Tile & Stone Adhesive */}
           <div className="flex flex-col items-center text-center group reveal delay-400">
             <Link href="/products/vb-3003-large-format-tile-stone-adhesive" className="w-full flex justify-center">
-              <div className="relative w-44 h-60 sm:w-52 sm:h-72 rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
+              <div className="relative w-full max-w-[208px] aspect-[3/4] rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
                   src="/images/products/vb-3003-front.jpg"
                   alt="Tile Adhesive for Large Format Tile & Stone"
@@ -460,7 +461,7 @@ export default function HomePage() {
               </h3>
             </Link>
 
-            <Link href="/applications" className="group reveal delay-300">
+            <Link href="/applications" className="col-span-2 sm:col-span-1 max-w-xs sm:max-w-none mx-auto w-full group reveal delay-300">
               <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden bg-stone-200 shadow-xs">
                 <Image
                   src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=600&auto=format&fit=crop"
@@ -469,7 +470,7 @@ export default function HomePage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-xs font-bold text-stone-900 mt-2.5">
+              <h3 className="text-xs font-bold text-stone-900 mt-2.5 text-center sm:text-left">
                 Exterior
               </h3>
             </Link>
@@ -492,90 +493,85 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/90 to-stone-950/80"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          
+          {/* Centered Heading */}
+          <div className="max-w-2xl mx-auto space-y-3 mb-10 sm:mb-12 reveal">
+            <h2 className="text-3xl sm:text-4xl font-black font-serif-heading text-white tracking-tight">
+              Why Choose Vajra Bond?
+            </h2>
+            <div className="w-16 h-1 bg-[#c5832b] mx-auto"></div>
+          </div>
+
+          {/* 6 Icons Grid - Perfectly Balanced & Centered */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 max-w-6xl mx-auto reveal delay-100">
             
-            {/* Left: Why Choose Vajra Bond & 6 Hexagonal Icons */}
-            <div className="lg:col-span-8 space-y-8 reveal-left">
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-black font-serif-heading text-white tracking-tight">
-                  Why Choose Vajra Bond?
-                </h2>
-                <div className="w-16 h-1 bg-[#c5832b] mt-2"></div>
+            <div className="flex flex-col items-center text-center gap-3 group">
+              <div className="w-14 h-14 rounded-2xl border border-[#c5832b]/80 bg-stone-900/60 backdrop-blur-xs flex items-center justify-center text-[#c5832b] shadow-md group-hover:scale-105 transition-transform">
+                <Shield className="w-6 h-6 stroke-[1.5]" />
               </div>
-
-              {/* 6 Icons Grid matching template */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-2">
-                
-                <div className="flex flex-col items-start gap-2">
-                  <div className="w-12 h-12 rounded-xl border border-[#c5832b]/80 flex items-center justify-center text-[#c5832b]">
-                    <Shield className="w-6 h-6 stroke-[1.5]" />
-                  </div>
-                  <h4 className="text-xs font-bold text-stone-200">
-                    Superior Bond Strength
-                  </h4>
-                </div>
-
-                <div className="flex flex-col items-start gap-2">
-                  <div className="w-12 h-12 rounded-xl border border-[#c5832b]/80 flex items-center justify-center text-[#c5832b]">
-                    <Sparkles className="w-6 h-6 stroke-[1.5]" />
-                  </div>
-                  <h4 className="text-xs font-bold text-stone-200">
-                    Excellent Flexibility
-                  </h4>
-                </div>
-
-                <div className="flex flex-col items-start gap-2">
-                  <div className="w-12 h-12 rounded-xl border border-[#c5832b]/80 flex items-center justify-center text-[#c5832b]">
-                    <Layers className="w-6 h-6 stroke-[1.5]" />
-                  </div>
-                  <h4 className="text-xs font-bold text-stone-200">
-                    Slip Resistance
-                  </h4>
-                </div>
-
-                <div className="flex flex-col items-start gap-2">
-                  <div className="w-12 h-12 rounded-xl border border-[#c5832b]/80 flex items-center justify-center text-[#c5832b]">
-                    <Droplet className="w-6 h-6 stroke-[1.5]" />
-                  </div>
-                  <h4 className="text-xs font-bold text-stone-200">
-                    Water & Weather Resistant
-                  </h4>
-                </div>
-
-                <div className="flex flex-col items-start gap-2">
-                  <div className="w-12 h-12 rounded-xl border border-[#c5832b]/80 flex items-center justify-center text-[#c5832b]">
-                    <Home className="w-6 h-6 stroke-[1.5]" />
-                  </div>
-                  <h4 className="text-xs font-bold text-stone-200">
-                    For All Tile Types
-                  </h4>
-                </div>
-
-                <div className="flex flex-col items-start gap-2">
-                  <div className="w-12 h-12 rounded-xl border border-[#c5832b]/80 flex items-center justify-center text-[#c5832b]">
-                    <Leaf className="w-6 h-6 stroke-[1.5]" />
-                  </div>
-                  <h4 className="text-xs font-bold text-stone-200">
-                    Eco-Friendly Formulation
-                  </h4>
-                </div>
-
-              </div>
+              <h4 className="text-xs sm:text-sm font-bold text-stone-200 leading-snug">
+                Superior Bond Strength
+              </h4>
             </div>
 
-            {/* Right: MAJBOOT JOD. LAMBI UMAR. */}
-            <div className="lg:col-span-4 text-left lg:text-right border-l lg:border-l-0 lg:border-r-0 border-stone-800 pl-6 lg:pl-0 reveal-right delay-200">
-              <h3 className="text-2xl sm:text-3xl font-black text-[#c5832b] font-serif-heading tracking-wider leading-tight">
-                MAJBOOT JOD. <br />
-                LAMBI UMAR.
-              </h3>
-              <p className="text-xs sm:text-sm text-stone-300 mt-2 max-w-xs lg:ml-auto leading-relaxed">
-                More than a promise, it&apos;s our commitment to every structure.
-              </p>
+            <div className="flex flex-col items-center text-center gap-3 group">
+              <div className="w-14 h-14 rounded-2xl border border-[#c5832b]/80 bg-stone-900/60 backdrop-blur-xs flex items-center justify-center text-[#c5832b] shadow-md group-hover:scale-105 transition-transform">
+                <Sparkles className="w-6 h-6 stroke-[1.5]" />
+              </div>
+              <h4 className="text-xs sm:text-sm font-bold text-stone-200 leading-snug">
+                Excellent Flexibility
+              </h4>
+            </div>
+
+            <div className="flex flex-col items-center text-center gap-3 group">
+              <div className="w-14 h-14 rounded-2xl border border-[#c5832b]/80 bg-stone-900/60 backdrop-blur-xs flex items-center justify-center text-[#c5832b] shadow-md group-hover:scale-105 transition-transform">
+                <Layers className="w-6 h-6 stroke-[1.5]" />
+              </div>
+              <h4 className="text-xs sm:text-sm font-bold text-stone-200 leading-snug">
+                Slip Resistance
+              </h4>
+            </div>
+
+            <div className="flex flex-col items-center text-center gap-3 group">
+              <div className="w-14 h-14 rounded-2xl border border-[#c5832b]/80 bg-stone-900/60 backdrop-blur-xs flex items-center justify-center text-[#c5832b] shadow-md group-hover:scale-105 transition-transform">
+                <Droplet className="w-6 h-6 stroke-[1.5]" />
+              </div>
+              <h4 className="text-xs sm:text-sm font-bold text-stone-200 leading-snug">
+                Water & Weather Resistant
+              </h4>
+            </div>
+
+            <div className="flex flex-col items-center text-center gap-3 group">
+              <div className="w-14 h-14 rounded-2xl border border-[#c5832b]/80 bg-stone-900/60 backdrop-blur-xs flex items-center justify-center text-[#c5832b] shadow-md group-hover:scale-105 transition-transform">
+                <Home className="w-6 h-6 stroke-[1.5]" />
+              </div>
+              <h4 className="text-xs sm:text-sm font-bold text-stone-200 leading-snug">
+                For All Tile Types
+              </h4>
+            </div>
+
+            <div className="flex flex-col items-center text-center gap-3 group">
+              <div className="w-14 h-14 rounded-2xl border border-[#c5832b]/80 bg-stone-900/60 backdrop-blur-xs flex items-center justify-center text-[#c5832b] shadow-md group-hover:scale-105 transition-transform">
+                <Leaf className="w-6 h-6 stroke-[1.5]" />
+              </div>
+              <h4 className="text-xs sm:text-sm font-bold text-stone-200 leading-snug">
+                Eco-Friendly Formulation
+              </h4>
             </div>
 
           </div>
+
+          {/* Centered Brand Commitment Tagline */}
+          <div className="mt-12 pt-8 border-t border-stone-800/80 text-center max-w-xl mx-auto reveal delay-200">
+            <h3 className="text-2xl sm:text-3xl font-black text-[#c5832b] font-serif-heading tracking-wider leading-tight">
+              MAJBOOT JOD. LAMBI UMAR.
+            </h3>
+            <p className="text-xs sm:text-sm text-stone-300 mt-2 leading-relaxed">
+              More than a promise, it&apos;s our commitment to every structure.
+            </p>
+          </div>
+
         </div>
       </section>
 
@@ -638,7 +634,7 @@ export default function HomePage() {
             </p>
 
             <form onSubmit={handleCalculate} className="mt-8 space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 items-end">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3.5 items-end">
                 
                 {/* Tile Size */}
                 <div>
@@ -710,7 +706,7 @@ export default function HomePage() {
 
             {/* Calculated Output Banner */}
             {calculatedBags !== null && (
-              <div className="mt-6 p-4 rounded-xl bg-amber-50 border border-amber-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-in fade-in">
+              <div className="mt-6 p-4 rounded-xl bg-amber-50 border border-amber-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 animate-in fade-in">
                 <div>
                   <p className="text-xs text-stone-600">
                     Estimated Requirement for <strong>{area} sq. ft.</strong> ({tileSize}):
@@ -725,7 +721,7 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={() => openQuote(`${calculatedBags} Bags Tile Adhesive for ${area} sq. ft.`)}
-                  className="px-4 py-2 bg-[#c5832b] hover:bg-[#b07220] text-white font-bold rounded-lg text-xs shadow-xs"
+                  className="w-full sm:w-auto text-center px-5 py-2.5 bg-[#c5832b] hover:bg-[#b07220] text-white font-bold rounded-lg text-xs shadow-xs shrink-0 cursor-pointer"
                 >
                   Get Project Pricing
                 </button>
@@ -743,10 +739,6 @@ export default function HomePage() {
           
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 reveal">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[#c5832b] text-xs font-bold uppercase tracking-wider mb-2">
-                <BookOpen className="w-3.5 h-3.5" />
-                <span>Knowledge & Standards</span>
-              </div>
               <h2 className="text-2xl sm:text-3xl font-black text-stone-900 font-serif-heading">
                 Latest Articles & Guides
               </h2>
@@ -831,6 +823,68 @@ export default function HomePage() {
             ))}
           </div>
 
+        </div>
+      </section>
+
+      {/* PAN-INDIA TIER 1 & TIER 2 CITY SUPPLY NETWORK */}
+      <section className="py-14 sm:py-18 bg-white border-b border-stone-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 reveal">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-black text-stone-900 font-serif-heading">
+                Pan-India Supply & Direct Site Delivery
+              </h2>
+              <p className="text-stone-500 text-xs sm:text-sm mt-1">
+                Fast 24 to 48 hour dispatch from our NCR manufacturing plant to major Tier 1 and Tier 2 cities across India.
+              </p>
+            </div>
+            <Link
+              href="/locations"
+              className="text-xs sm:text-sm font-bold text-[#c5832b] hover:text-[#b07220] flex items-center gap-1 group"
+            >
+              <span>Explore All 30+ City Hubs</span>
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {[
+              { name: 'Delhi NCR', time: 'Same-Day / 24h', slug: 'delhi-ncr' },
+              { name: 'Mumbai', time: '24–48 Hours', slug: 'mumbai' },
+              { name: 'Bengaluru', time: '48 Hours', slug: 'bengaluru' },
+              { name: 'Hyderabad', time: '48 Hours', slug: 'hyderabad' },
+              { name: 'Lucknow', time: '24–48 Hours', slug: 'lucknow' },
+              { name: 'Jaipur', time: '24 Hours', slug: 'jaipur' },
+              { name: 'Chandigarh', time: '24 Hours', slug: 'chandigarh' },
+              { name: 'Pune', time: '24–48 Hours', slug: 'pune' },
+              { name: 'Ahmedabad', time: '24–48 Hours', slug: 'ahmedabad' },
+              { name: 'Kolkata', time: '48–72 Hours', slug: 'kolkata' },
+              { name: 'Indore', time: '24–48 Hours', slug: 'indore' },
+              { name: 'Patna', time: '36–48 Hours', slug: 'patna' },
+            ].map((c) => (
+              <Link
+                key={c.slug}
+                href={`/locations/${c.slug}`}
+                className="p-3.5 rounded-xl bg-stone-50 hover:bg-amber-50 hover:border-amber-400 border border-stone-200 transition-all flex flex-col justify-between group shadow-2xs"
+              >
+                <div>
+                  <div className="flex items-center gap-1.5 text-amber-700 mb-1">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span className="text-xs font-bold text-stone-900 group-hover:text-amber-800 transition-colors">
+                      {c.name}
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-stone-500 block">
+                    {c.time}
+                  </span>
+                </div>
+                <div className="mt-2 text-[11px] font-semibold text-amber-700 flex items-center gap-1">
+                  <span>View Supply</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

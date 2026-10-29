@@ -9,7 +9,6 @@ import {
   CheckCircle2, 
   MapPin, 
   Truck, 
-  Award, 
   ShieldCheck 
 } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
@@ -60,10 +59,6 @@ export default function BecomeADealerPage() {
       {/* HEADER BANNER */}
       <section className="bg-stone-900 text-white py-16 lg:py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left reveal">
-          <div className="flex items-center justify-center sm:justify-start gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
-            <Award className="w-4 h-4" />
-            Distributor & Dealer Partnership Program
-          </div>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
             Become a Dealer
           </h1>

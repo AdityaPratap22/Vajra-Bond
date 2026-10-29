@@ -30,35 +30,36 @@ export default function ResourceViewerModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/70 backdrop-blur-xs animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+        className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] sm:max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="bg-stone-900 text-white px-6 py-4 flex items-center justify-between border-b border-stone-800">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-amber-500/20 text-amber-400 rounded-lg">
+        <div className="bg-stone-900 text-white px-4 sm:px-6 py-3.5 sm:py-4 flex items-center justify-between border-b border-stone-800 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 pr-2">
+            <div className="p-2 bg-amber-500/20 text-amber-400 rounded-lg shrink-0">
               <FileText className="w-5 h-5" />
             </div>
-            <div>
-              <h4 className="text-base font-bold text-white leading-tight">{resourceTitle}</h4>
-              <p className="text-xs text-stone-400">
-                {resourceCategory} • Format: Official PDF ({resourceSize})
+            <div className="min-w-0">
+              <h4 className="text-sm sm:text-base font-bold text-white leading-tight truncate">{resourceTitle}</h4>
+              <p className="text-[11px] sm:text-xs text-stone-400 truncate">
+                {resourceCategory} • PDF ({resourceSize})
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={handleDownload}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white text-xs font-semibold rounded-lg transition-colors"
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white text-xs font-semibold rounded-lg transition-colors cursor-pointer"
+              title="Print / Save PDF"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>Print / Save PDF</span>
+              <span className="hidden sm:inline">Print / Save PDF</span>
             </button>
             <button
               onClick={onClose}
-              className="text-stone-400 hover:text-white p-1.5 rounded-full hover:bg-stone-800 transition-colors"
+              className="text-stone-400 hover:text-white p-1.5 rounded-full hover:bg-stone-800 transition-colors cursor-pointer"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
@@ -67,7 +68,7 @@ export default function ResourceViewerModal({
         </div>
 
         {/* Document Body Preview */}
-        <div id="printable-tds" className="p-8 sm:p-10 overflow-y-auto bg-stone-50/50 space-y-6 text-stone-900 text-sm">
+        <div id="printable-tds" className="p-4 sm:p-8 md:p-10 overflow-y-auto bg-stone-50/50 space-y-6 text-stone-900 text-sm">
           {/* Header of TDS */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b-2 border-amber-600 gap-4 bg-white p-6 rounded-xl shadow-xs">
             <div className="flex items-center gap-3">

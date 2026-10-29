@@ -11,7 +11,7 @@ export default function FloatingSocialButtons() {
   return (
     <aside
       aria-label="Social and messaging channels"
-      className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-auto"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2.5 sm:gap-3 pointer-events-auto"
     >
       {/* Instagram Floating Icon - Circular Old Theme */}
       <a
@@ -19,12 +19,12 @@ export default function FloatingSocialButtons() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Follow Vajra Bond on Instagram @vajra.bond"
-        className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300"
+        className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300"
       >
-        <InstagramIcon className="w-8 h-8 fill-current transition-transform group-hover:rotate-6" variant="glyph" />
+        <InstagramIcon className="w-7 h-7 sm:w-8 sm:h-8 fill-current transition-transform group-hover:rotate-6" variant="glyph" />
 
-        {/* Tooltip on hover */}
-        <span className="absolute right-full mr-3 px-3 py-1.5 rounded-md bg-stone-900/95 text-white text-xs font-semibold whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-200 shadow-md">
+        {/* Tooltip on hover (desktop only) */}
+        <span className="hidden sm:block absolute right-full mr-3 px-3 py-1.5 rounded-md bg-stone-900/95 text-white text-xs font-semibold whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-200 shadow-md">
           Instagram @vajra.bond
         </span>
       </a>
@@ -35,15 +35,15 @@ export default function FloatingSocialButtons() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Vajra Bond on WhatsApp (+91 63950 14392)"
-        className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300"
+        className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300"
       >
         {/* Subtle pulsing background ring */}
         <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-40 animate-ping pointer-events-none"></span>
 
-        <WhatsAppIcon className="w-8 h-8 relative z-10 transition-transform group-hover:scale-105" variant="monochrome" />
+        <WhatsAppIcon className="w-7 h-7 sm:w-8 sm:h-8 relative z-10 transition-transform group-hover:scale-105" variant="monochrome" />
 
-        {/* Tooltip on hover */}
-        <span className="absolute right-full mr-3 px-3 py-1.5 rounded-md bg-stone-900/95 text-white text-xs font-semibold whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-200 shadow-md">
+        {/* Tooltip on hover (desktop only) */}
+        <span className="hidden sm:block absolute right-full mr-3 px-3 py-1.5 rounded-md bg-stone-900/95 text-white text-xs font-semibold whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-200 shadow-md">
           Chat on WhatsApp: +91 63950 14392
         </span>
       </a>

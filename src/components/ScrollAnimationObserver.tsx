@@ -9,28 +9,26 @@ export default function ScrollAnimationObserver() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const checkElementsInView = () => {
-      const elements = document.querySelectorAll(
-        '.reveal:not(.revealed), .reveal-left:not(.revealed), .reveal-right:not(.revealed), .reveal-zoom:not(.revealed)'
-      );
-      
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      const triggerBottom = windowHeight * 0.90;
-
-      elements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= triggerBottom && rect.bottom >= 0) {
-          el.classList.add('revealed');
-        }
-      });
-    };
-
     let observer: IntersectionObserver | null = null;
-    if ('IntersectionObserver' in window) {
+
+    // Defer observation until after React hydration is completely finished
+    const timer = setTimeout(() => {
+      const selector =
+        '.reveal:not([data-revealed="true"]), .reveal-left:not([data-revealed="true"]), .reveal-right:not([data-revealed="true"]), .reveal-zoom:not([data-revealed="true"])';
+
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll(selector).forEach((el) => {
+          el.setAttribute('data-revealed', 'true');
+          el.classList.add('revealed');
+        });
+        return;
+      }
+
       observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
+              entry.target.setAttribute('data-revealed', 'true');
               entry.target.classList.add('revealed');
               observer?.unobserve(entry.target);
             }
@@ -38,45 +36,18 @@ export default function ScrollAnimationObserver() {
         },
         {
           root: null,
-          rootMargin: '0px 0px -40px 0px',
-          threshold: 0.08,
+          rootMargin: '0px 0px -30px 0px',
+          threshold: 0.05,
         }
       );
 
-      const elements = document.querySelectorAll(
-        '.reveal:not(.revealed), .reveal-left:not(.revealed), .reveal-right:not(.revealed), .reveal-zoom:not(.revealed)'
-      );
+      const elements = document.querySelectorAll(selector);
       elements.forEach((el) => observer?.observe(el));
-    }
-
-    // Trigger checks on load and after initial rendering
-    checkElementsInView();
-    const rafId = requestAnimationFrame(checkElementsInView);
-    const timerId = setTimeout(checkElementsInView, 120);
-
-    // Fallback scroll and resize listeners for rock-solid reliability
-    window.addEventListener('scroll', checkElementsInView, { passive: true });
-    window.addEventListener('resize', checkElementsInView, { passive: true });
-
-    const mutationObserver = new MutationObserver(() => {
-      checkElementsInView();
-      if (observer) {
-        const elements = document.querySelectorAll(
-          '.reveal:not(.revealed), .reveal-left:not(.revealed), .reveal-right:not(.revealed), .reveal-zoom:not(.revealed)'
-        );
-        elements.forEach((el) => observer?.observe(el));
-      }
-    });
-
-    mutationObserver.observe(document.body, { childList: true, subtree: true });
+    }, 60);
 
     return () => {
-      cancelAnimationFrame(rafId);
-      clearTimeout(timerId);
+      clearTimeout(timer);
       observer?.disconnect();
-      mutationObserver.disconnect();
-      window.removeEventListener('scroll', checkElementsInView);
-      window.removeEventListener('resize', checkElementsInView);
     };
   }, [pathname]);
 

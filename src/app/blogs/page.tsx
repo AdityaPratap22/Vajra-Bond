@@ -17,10 +17,6 @@ export default function BlogsPage() {
     setCurrentPage(1);
   }, [searchQuery]);
 
-  const featuredPost = useMemo(() => {
-    return blogPosts.find((p) => p.featured) || blogPosts[0];
-  }, []);
-
   const filteredPosts = useMemo(() => {
     return blogPosts.filter((post) => {
       const matchesSearch =
@@ -80,7 +76,7 @@ export default function BlogsPage() {
       <section className="bg-stone-950 text-white py-14 sm:py-20 relative overflow-hidden border-b border-stone-800">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop"
             alt="Tile adhesive knowledge base"
             fill
             className="object-cover opacity-20"
@@ -89,20 +85,16 @@ export default function BlogsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold mb-4 uppercase tracking-wider">
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>500+ Technical Articles & Standards Guides</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl font-black font-serif-heading tracking-tight text-white max-w-3xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left reveal">
+          <h1 className="text-3xl sm:text-5xl font-black font-serif-heading tracking-tight text-white max-w-3xl">
             Vajra Bond Knowledge Hub & Technical Library
           </h1>
-          <p className="text-stone-300 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
+          <p className="text-stone-300 text-sm sm:text-base max-w-2xl mt-4 leading-relaxed">
             In-depth engineering documentation, IS 15477 standards compliance, substrate preparation, and problem-solving guides for every tile, stone, and application across India.
           </p>
 
           {/* Search Bar */}
-          <div className="max-w-xl mx-auto mt-8 relative">
+          <div className="max-w-xl mt-8 relative">
             <Search className="w-5 h-5 text-stone-400 absolute left-4 top-1/2 -translate-y-1/2" />
             <input
               type="text"
@@ -118,80 +110,6 @@ export default function BlogsPage() {
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 w-full flex-1">
         
-        {/* Featured Post Card (only shown on page 1 when not searching) */}
-        {!searchQuery.trim() && currentPage === 1 && featuredPost && (
-          <div className="mb-12 reveal">
-            <div className="text-xs font-bold uppercase tracking-wider text-amber-700 mb-3 flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-amber-500"></span>
-              Featured Pillar Guide
-            </div>
-            <Link
-              href={`/blogs/${featuredPost.slug}`}
-              className="group block bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-md hover:shadow-xl transition-all duration-300"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-                <div className="lg:col-span-7 relative min-h-[260px] sm:min-h-[360px] bg-stone-100 overflow-hidden">
-                  <Image
-                    src={featuredPost.coverImage}
-                    alt={featuredPost.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-
-                <div className="lg:col-span-5 p-6 sm:p-10 flex flex-col justify-between space-y-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-4 text-xs text-stone-500">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5 text-stone-400" />
-                        {featuredPost.date}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5 text-stone-400" />
-                        {featuredPost.readTime}
-                      </span>
-                    </div>
-
-                    <h2 className="text-xl sm:text-2xl font-black text-stone-900 group-hover:text-[#c5832b] transition-colors leading-snug">
-                      {featuredPost.title}
-                    </h2>
-
-                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed line-clamp-3">
-                      {featuredPost.excerpt}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      <div className="relative w-8 h-8 rounded-full overflow-hidden bg-stone-200">
-                        <Image
-                          src={featuredPost.author.avatar}
-                          alt={featuredPost.author.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-stone-900">
-                          {featuredPost.author.name}
-                        </div>
-                        <div className="text-[10px] text-stone-500">
-                          {featuredPost.author.role}
-                        </div>
-                      </div>
-                    </div>
-
-                    <span className="text-xs font-bold text-[#c5832b] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                      Read Article
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        )}
-
         {/* Section Header & Count */}
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-stone-200 gap-2 reveal">

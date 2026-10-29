@@ -44,7 +44,7 @@ export const pillarPosts: BlogPost[] = [
       role: 'Chief Technical Advisor',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop',
     },
-    coverImage: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop',
     tags: ['IS 15477', 'Specifications', 'Type 2T', 'Type 3T', 'Engineering'],
     featured: true,
     content: [

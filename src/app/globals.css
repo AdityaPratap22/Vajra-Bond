@@ -39,9 +39,11 @@ body {
   will-change: opacity, transform;
 }
 
-.reveal.revealed {
+.reveal.revealed,
+.reveal[data-revealed="true"] {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  will-change: auto;
 }
 
 .reveal-left {
@@ -51,9 +53,11 @@ body {
   will-change: opacity, transform;
 }
 
-.reveal-left.revealed {
+.reveal-left.revealed,
+.reveal-left[data-revealed="true"] {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
+  will-change: auto;
 }
 
 .reveal-right {
@@ -63,9 +67,11 @@ body {
   will-change: opacity, transform;
 }
 
-.reveal-right.revealed {
+.reveal-right.revealed,
+.reveal-right[data-revealed="true"] {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
+  will-change: auto;
 }
 
 .reveal-zoom {
@@ -75,9 +81,11 @@ body {
   will-change: opacity, transform;
 }
 
-.reveal-zoom.revealed {
+.reveal-zoom.revealed,
+.reveal-zoom[data-revealed="true"] {
   opacity: 1;
-  transform: scale(1);
+  transform: none;
+  will-change: auto;
 }
 
 /* Stagger Delays */

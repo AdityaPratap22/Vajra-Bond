@@ -8,7 +8,6 @@ import {
   Download, 
   ChevronRight, 
   Home, 
-  Sparkles, 
   Layers, 
   FileText, 
   Wrench, 
@@ -88,8 +87,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
           {/* Right Column: Key Details & Actions */}
           <div className="lg:col-span-7 space-y-6 reveal-right delay-100">
             <div>
-              <div className="flex items-center gap-2 text-amber-700 text-xs font-bold uppercase tracking-wider mb-2">
-                <Sparkles className="w-4 h-4" />
+              <div className="text-amber-700 text-xs font-bold uppercase tracking-wider mb-2">
                 {product.category} Series • Conforms to {product.standardType}
               </div>
               <h1 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight">
@@ -122,11 +120,11 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
             </div>
 
             {/* CTAs */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 type="button"
                 onClick={() => setIsQuoteOpen(true)}
-                className="px-8 py-3.5 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all text-sm cursor-pointer"
+                className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all text-sm cursor-pointer text-center justify-center"
               >
                 Get a Quote
               </button>
@@ -134,7 +132,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
               <button
                 type="button"
                 onClick={() => setIsTdsModalOpen(true)}
-                className="px-6 py-3.5 bg-white hover:bg-stone-50 text-stone-800 border border-stone-300 font-bold rounded-xl text-sm transition-all flex items-center gap-2 shadow-xs cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3.5 bg-white hover:bg-stone-50 text-stone-800 border border-stone-300 font-bold rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
               >
                 <Download className="w-4 h-4 text-amber-600" />
                 <span>Download Brochure / TDS</span>
@@ -142,10 +140,10 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
             </div>
 
             {/* Quick delivery helpline notice */}
-            <div className="pt-2 border-t border-stone-200 text-xs text-stone-500 flex items-center justify-between">
+            <div className="pt-2.5 border-t border-stone-200 text-xs text-stone-500 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4">
               <span>Wholesale direct-to-site delivery available across India.</span>
-              <a href="tel:+918130099534" className="text-amber-700 font-bold hover:underline">
-                Call: +91 81300 99534
+              <a href="tel:+916395014392" className="text-amber-700 font-bold hover:underline shrink-0">
+                Call / WhatsApp: +91 63950 14392
               </a>
             </div>
           </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, CheckCircle, ShieldCheck, PhoneCall, Sparkles } from 'lucide-react';
+import { X, CheckCircle, ShieldCheck, PhoneCall } from 'lucide-react';
 import { products } from '@/data/products';
 import WhatsAppIcon from './WhatsAppIcon';
 
@@ -57,32 +57,28 @@ export default function QuoteModal({ isOpen, onClose, defaultProduct }: QuoteMod
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs transition-opacity animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs transition-opacity animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-amber-100"
+        className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-amber-100 max-h-[92vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header - Old Amber Brand Theme */}
-        <div className="relative bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 text-white p-6 sm:p-7">
+        <div className="relative bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 text-white p-5 sm:p-7 shrink-0">
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 text-white/80 hover:text-white bg-black/10 hover:bg-black/20 p-2 rounded-full transition-colors cursor-pointer"
+            className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 text-white/80 hover:text-white bg-black/10 hover:bg-black/20 p-2 rounded-full transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>
-          <div className="flex items-center gap-2 text-amber-200 text-xs font-semibold uppercase tracking-wider mb-1">
-            <Sparkles className="w-4 h-4" />
-            Quick Estimate & Direct Factory Pricing
-          </div>
-          <h3 className="text-2xl font-bold tracking-tight">Request a Quote</h3>
-          <p className="text-amber-100 text-sm mt-1 leading-relaxed">
+          <h3 className="text-xl sm:text-2xl font-bold tracking-tight">Request a Quote</h3>
+          <p className="text-amber-100 text-xs sm:text-sm mt-1 leading-relaxed">
             Fill out your details below to directly connect with our technical sales team via WhatsApp (+91 63950 14392).
           </p>
         </div>
 
         {/* Content */}
-        <div className="p-6 sm:p-8 max-h-[80vh] overflow-y-auto">
+        <div className="p-4 sm:p-8 overflow-y-auto">
           {submitted ? (
             <div className="py-8 text-center space-y-4">
               <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto">
@@ -198,6 +194,7 @@ export default function QuoteModal({ isOpen, onClose, defaultProduct }: QuoteMod
                   ))}
                   <option value="Complete Range / Bulk Dealership">Complete Product Range (Bulk/Dealer)</option>
                   <option value="Need Technical Recommendation">Need Technical Recommendation</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 

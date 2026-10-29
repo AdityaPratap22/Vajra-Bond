@@ -140,6 +140,76 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Tier 1 & Tier 2 Cities Supply Network SEO strip */}
+        <div className="py-6 border-b border-stone-800/80 text-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <span className="font-bold text-stone-300 uppercase tracking-wider text-[11px]">
+              Pan-India Tile Adhesive Supply & Delivery Hubs
+            </span>
+            <Link
+              href="/locations"
+              className="text-amber-500 hover:text-amber-400 font-semibold transition-colors"
+            >
+              View All 30+ City Locations →
+            </Link>
+          </div>
+          <div className="flex flex-wrap gap-x-3 gap-y-1.5 text-stone-400 text-[11px] leading-relaxed">
+            <Link href="/locations/delhi-ncr" className="hover:text-amber-400 transition-colors">Delhi NCR</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/mumbai" className="hover:text-amber-400 transition-colors">Mumbai</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/bengaluru" className="hover:text-amber-400 transition-colors">Bengaluru</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/hyderabad" className="hover:text-amber-400 transition-colors">Hyderabad</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/chennai" className="hover:text-amber-400 transition-colors">Chennai</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/kolkata" className="hover:text-amber-400 transition-colors">Kolkata</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/pune" className="hover:text-amber-400 transition-colors">Pune</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/ahmedabad" className="hover:text-amber-400 transition-colors">Ahmedabad</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/jaipur" className="hover:text-amber-400 transition-colors">Jaipur</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/lucknow" className="hover:text-amber-400 transition-colors">Lucknow</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/chandigarh" className="hover:text-amber-400 transition-colors">Chandigarh</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/surat" className="hover:text-amber-400 transition-colors">Surat</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/indore" className="hover:text-amber-400 transition-colors">Indore</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/kochi" className="hover:text-amber-400 transition-colors">Kochi</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/coimbatore" className="hover:text-amber-400 transition-colors">Coimbatore</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/patna" className="hover:text-amber-400 transition-colors">Patna</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/bhopal" className="hover:text-amber-400 transition-colors">Bhopal</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/vadodara" className="hover:text-amber-400 transition-colors">Vadodara</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/ludhiana" className="hover:text-amber-400 transition-colors">Ludhiana</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/agra" className="hover:text-amber-400 transition-colors">Agra</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/varanasi" className="hover:text-amber-400 transition-colors">Varanasi</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/bhubaneswar" className="hover:text-amber-400 transition-colors">Bhubaneswar</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/dehradun" className="hover:text-amber-400 transition-colors">Dehradun</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/visakhapatnam" className="hover:text-amber-400 transition-colors">Visakhapatnam</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/raipur" className="hover:text-amber-400 transition-colors">Raipur</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/kanpur" className="hover:text-amber-400 transition-colors">Kanpur</Link>
+            <span className="text-stone-700">•</span>
+            <Link href="/locations/ranchi" className="hover:text-amber-400 transition-colors">Ranchi</Link>
+          </div>
+        </div>
+
         {/* Bottom Copyright & Legal */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
           <p>

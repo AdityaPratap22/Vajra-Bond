@@ -186,9 +186,9 @@ export default function CoverageCalculator({ onOpenQuoteModal, defaultProduct }:
         {/* Calculation Result Summary Card */}
         <div className="lg:col-span-5 bg-gradient-to-br from-amber-900 via-amber-800 to-stone-900 text-white rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-xl">
           <div>
-            <div className="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4 border border-amber-500/30">
+            <h3 className="text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
               Estimated Materials Breakdown
-            </div>
+            </h3>
 
             <div className="mb-6">
               <span className="text-4xl sm:text-5xl font-black text-amber-400 tracking-tight">

@@ -7,7 +7,6 @@ import {
   ShieldCheck, 
   Target, 
   Compass, 
-  Sparkles, 
   Users, 
   CheckCircle2, 
   Award, 
@@ -37,12 +36,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-900/90 to-stone-950/80"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left reveal">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            ABOUT VAJRA BOND
-          </div>
-
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left reveal" suppressHydrationWarning>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight max-w-3xl leading-tight">
             Building Stronger Spaces for a Better Tomorrow
           </h1>

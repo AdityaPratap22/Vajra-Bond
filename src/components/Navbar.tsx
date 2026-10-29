@@ -79,14 +79,28 @@ export default function Navbar() {
       <header className="sticky top-0 z-40 bg-white border-b border-stone-200/90 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between relative">
           
-          {/* Logo Emblem - Animated between cradle (homepage top) and inline (scrolled / other pages) */}
+          {/* Logo - Clean centered without circular cradle on small/medium screens, animated cradle on desktop */}
           <Link href="/" className="relative flex items-center h-full">
             
-            {/* Wrapper maintaining width in navbar flow */}
-            <div className="relative flex items-center justify-center h-full"
+            {/* Small & Medium Screens: No circular cradle border, clean centered logo within navbar */}
+            <div className="flex lg:hidden items-center h-full">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 shrink-0 drop-shadow-xs">
+                <Image
+                  src="/images/logo.png"
+                  alt="Vajra Bond"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Large/Desktop Screens: Animated emblem and semicircular border cradle */}
+            <div 
+              className="hidden lg:flex relative items-center justify-center h-full"
               style={{ width: '128px' }}
             >
-              
               {/* Circular Emblem - shifts from border-centered to navbar-centered */}
               <div
                 className="absolute left-1/2 shrink-0 z-20 drop-shadow-md"
@@ -107,7 +121,7 @@ export default function Navbar() {
                 />
               </div>
 
-              {/* Semicircular Border Cradle - fades and flattens on scroll */}
+              {/* Semicircular Border Cradle - desktop only (fades and flattens on scroll) */}
               {p < 1 && (
                 <div
                   className="absolute left-1/2 -translate-x-1/2 pointer-events-none z-10"
@@ -149,7 +163,6 @@ export default function Navbar() {
                   </svg>
                 </div>
               )}
-
             </div>
 
           </Link>

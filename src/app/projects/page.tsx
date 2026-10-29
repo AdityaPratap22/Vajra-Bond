@@ -3,10 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { 
-  Building, 
   MapPin, 
   Layers, 
-  Sparkles, 
   Calendar, 
   ArrowRight, 
   ShieldCheck, 
@@ -33,10 +31,6 @@ export default function ProjectsPage() {
       {/* HEADER BANNER */}
       <section className="bg-stone-900 text-white py-16 lg:py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left reveal">
-          <div className="flex items-center justify-center sm:justify-start gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
-            <Building className="w-4 h-4" />
-            Landmark Installations & Case Studies
-          </div>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
             Our Projects
           </h1>
