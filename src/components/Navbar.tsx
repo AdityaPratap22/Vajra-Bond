@@ -67,7 +67,6 @@ export default function Navbar() {
     { name: 'Products', href: '/products' },
     { name: 'Applications', href: '/applications' },
     { name: 'Blogs', href: '/blogs' },
-    { name: 'Resources', href: '/resources' },
     { name: 'Contact', href: '/contact' },
   ];
 

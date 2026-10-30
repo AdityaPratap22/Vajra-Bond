@@ -488,28 +488,28 @@ export default async function CityLocationPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* OTHER TIER 1 & TIER 2 CITIES STRIP */}
+      {/* OTHER REGIONAL HUBS STRIP (DELHI NCR, HARYANA, PUNJAB, RAJASTHAN) */}
       <section className="bg-white border-t border-stone-200 py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
               <h3 className="text-sm font-bold text-stone-900 uppercase tracking-wider">
-                Pan-India Supply & Delivery Network
+                Direct Supply Network (Within 500-600km of Delhi NCR)
               </h3>
               <p className="text-stone-500 text-xs mt-0.5">
-                Explore our tile adhesive manufacturing and supply footprint in other Indian cities.
+                Explore tile adhesive supply across Delhi NCR, Haryana, Punjab, and Rajasthan hubs.
               </p>
             </div>
             <Link
               href="/locations"
               className="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1"
             >
-              <span>View All 30+ Cities</span>
+              <span>View All 21 Regional Hubs</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
             {siblingCities.map((c) => (
               <Link
                 key={c.slug}

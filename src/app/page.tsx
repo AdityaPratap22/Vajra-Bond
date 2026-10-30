@@ -575,35 +575,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. STATS / COUNTERS BAR */}
-      <section className="bg-white border-b border-stone-200 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-stone-200">
-            
-            <div className="pt-2 md:pt-0">
-              <p className="text-3xl sm:text-4xl font-black text-stone-900 font-serif-heading">15+</p>
-              <p className="text-xs font-semibold text-stone-500 mt-1">Years of Expertise</p>
-            </div>
-
-            <div className="pt-2 md:pt-0">
-              <p className="text-3xl sm:text-4xl font-black text-stone-900 font-serif-heading">500+</p>
-              <p className="text-xs font-semibold text-stone-500 mt-1">Projects Completed</p>
-            </div>
-
-            <div className="pt-2 md:pt-0">
-              <p className="text-3xl sm:text-4xl font-black text-stone-900 font-serif-heading">250+</p>
-              <p className="text-xs font-semibold text-stone-500 mt-1">Channel Partners</p>
-            </div>
-
-            <div className="pt-2 md:pt-0">
-              <p className="text-3xl sm:text-4xl font-black text-stone-900 font-serif-heading">99%</p>
-              <p className="text-xs font-semibold text-stone-500 mt-1">Customer Satisfaction</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* 7. TILE ADHESIVE CONSUMPTION CALCULATOR */}
       <section className="py-14 sm:py-18 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -832,17 +803,17 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 reveal">
             <div>
               <h2 className="text-2xl sm:text-3xl font-black text-stone-900 font-serif-heading">
-                Pan-India Supply & Direct Site Delivery
+                Direct Supply Network (Delhi NCR, Haryana, Punjab & Rajasthan)
               </h2>
               <p className="text-stone-500 text-xs sm:text-sm mt-1">
-                Fast 24 to 48 hour dispatch from our NCR manufacturing plant to major Tier 1 and Tier 2 cities across India.
+                Express same-day and 24-hour direct site dispatch within 500–600 km radius of our Faridabad plant.
               </p>
             </div>
             <Link
               href="/locations"
               className="text-xs sm:text-sm font-bold text-[#c5832b] hover:text-[#b07220] flex items-center gap-1 group"
             >
-              <span>Explore All 30+ City Hubs</span>
+              <span>Explore All Regional Hubs</span>
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -850,17 +821,17 @@ export default function HomePage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {[
               { name: 'Delhi NCR', time: 'Same-Day / 24h', slug: 'delhi-ncr' },
-              { name: 'Mumbai', time: '24–48 Hours', slug: 'mumbai' },
-              { name: 'Bengaluru', time: '48 Hours', slug: 'bengaluru' },
-              { name: 'Hyderabad', time: '48 Hours', slug: 'hyderabad' },
-              { name: 'Lucknow', time: '24–48 Hours', slug: 'lucknow' },
-              { name: 'Jaipur', time: '24 Hours', slug: 'jaipur' },
+              { name: 'Gurgaon', time: 'Same-Day / 12h', slug: 'gurgaon' },
+              { name: 'Faridabad', time: 'Same-Day / 4h', slug: 'faridabad' },
+              { name: 'Noida', time: 'Same-Day / 12h', slug: 'noida' },
+              { name: 'Panipat', time: '12–24 Hours', slug: 'panipat' },
+              { name: 'Karnal', time: '18–24 Hours', slug: 'karnal' },
               { name: 'Chandigarh', time: '24 Hours', slug: 'chandigarh' },
-              { name: 'Pune', time: '24–48 Hours', slug: 'pune' },
-              { name: 'Ahmedabad', time: '24–48 Hours', slug: 'ahmedabad' },
-              { name: 'Kolkata', time: '48–72 Hours', slug: 'kolkata' },
-              { name: 'Indore', time: '24–48 Hours', slug: 'indore' },
-              { name: 'Patna', time: '36–48 Hours', slug: 'patna' },
+              { name: 'Ludhiana', time: '24 Hours', slug: 'ludhiana' },
+              { name: 'Amritsar', time: '24–36 Hours', slug: 'amritsar' },
+              { name: 'Jaipur', time: '18–24 Hours', slug: 'jaipur' },
+              { name: 'Alwar & Bhiwadi', time: 'Same-Day / 12h', slug: 'alwar' },
+              { name: 'Jodhpur', time: '24–36 Hours', slug: 'jodhpur' },
             ].map((c) => (
               <Link
                 key={c.slug}
