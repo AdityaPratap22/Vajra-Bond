@@ -35,9 +35,6 @@ export default function HomeClient() {
   const [application, setApplication] = useState('Floor');
   const [calculatedBags, setCalculatedBags] = useState<number | null>(null);
 
-  // Testimonial slide index
-  const [testimonialIdx, setTestimonialIdx] = useState(0);
-
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
     // 1 bag (20kg) covers ~50 sq ft
@@ -49,30 +46,6 @@ export default function HomeClient() {
     setSelectedProductForQuote(prodName);
     setIsQuoteOpen(true);
   };
-
-  const testimonials = [
-    {
-      id: 1,
-      quote: "Excellent product quality and strong bonding. Vajra Bond has been our go-to choice for all our projects.",
-      name: "Rohit Sharma",
-      role: "Contractor, New Delhi",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
-    },
-    {
-      id: 2,
-      quote: "Great performance even in challenging conditions. Highly recommended for large format tiles.",
-      name: "Amit Verma",
-      role: "Architect, Gurgaon",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
-    },
-    {
-      id: 3,
-      quote: "Reliable, easy to use and gives excellent finishing. Our clients are always satisfied.",
-      name: "Sandeep Kumar",
-      role: "Builder, Noida",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop",
-    },
-  ];
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -96,7 +69,7 @@ export default function HomeClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Hero Content */}
-            <div className="lg:col-span-7 space-y-5 reveal-left" suppressHydrationWarning>
+            <div className="lg:col-span-7 space-y-5">
               <span className="text-[#c5832b] text-xs font-black tracking-widest uppercase block">
                 PREMIUM TILE ADHESIVES
               </span>
@@ -131,7 +104,7 @@ export default function HomeClient() {
             </div>
 
             {/* Right Card Overlay matching template (Hidden on phone screens) */}
-            <div className="hidden sm:flex lg:col-span-5 justify-end reveal-right delay-200" suppressHydrationWarning>
+            <div className="hidden sm:flex lg:col-span-5 justify-end">
               <div className="bg-stone-950/70 backdrop-blur-xs p-6 rounded-xl border border-stone-800/80 max-w-xs text-white relative">
                 <div className="absolute left-0 top-6 bottom-6 w-1 bg-[#c5832b] rounded-r"></div>
                 <div className="pl-4">
@@ -856,80 +829,6 @@ export default function HomeClient() {
               </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* 9. WHAT OUR CUSTOMERS SAY */}
-      <section className="py-14 sm:py-18 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        {/* Header row with Carousel Arrows matching template */}
-        <div className="flex items-end justify-between mb-8 reveal">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-black text-stone-900 font-serif-heading">
-              What Our Customers Say
-            </h2>
-            <p className="text-stone-500 text-xs sm:text-sm mt-1">
-              Trusted by builders, architects and contractors across India.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
-              className="w-9 h-9 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:border-[#c5832b] hover:text-[#c5832b] transition-colors"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => setTestimonialIdx((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0))}
-              className="w-9 h-9 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:border-[#c5832b] hover:text-[#c5832b] transition-colors"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-
-        {/* 3 Testimonials in a row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t, idx) => (
-            <div
-              key={t.id}
-              className={`bg-white p-6 sm:p-7 rounded-2xl border border-stone-200/90 shadow-xs flex flex-col justify-between space-y-5 reveal ${
-                idx === 0 ? 'delay-100' : idx === 1 ? 'delay-200' : 'delay-300'
-              }`}
-            >
-              <div className="space-y-3">
-                {/* Gold Quote Mark matching template */}
-                <span className="text-4xl font-serif text-[#c5832b] leading-none block">
-                  “
-                </span>
-                <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
-                  {t.quote}
-                </p>
-              </div>
-
-              <div className="pt-3 border-t border-stone-100 flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden bg-stone-200 shrink-0">
-                  <Image
-                    src={t.avatar}
-                    alt={t.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-stone-900">{t.name}</h4>
-                  <p className="text-[11px] text-stone-500">{t.role}</p>
-                  <div className="flex text-amber-500 text-xs mt-0.5">
-                    ★★★★★
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 

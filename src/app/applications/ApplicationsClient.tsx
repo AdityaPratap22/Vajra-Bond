@@ -32,7 +32,7 @@ export default function ApplicationsClient() {
       
       {/* HEADER BANNER */}
       <section className="bg-stone-900 text-white py-16 lg:py-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left reveal">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left">
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
             Applications
           </h1>

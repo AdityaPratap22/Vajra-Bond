@@ -85,7 +85,7 @@ export default function BlogsClient() {
           <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left reveal">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           <h1 className="text-3xl sm:text-5xl font-black font-serif-heading tracking-tight text-white max-w-3xl">
             Vajra Bond Knowledge Hub & Technical Library
           </h1>

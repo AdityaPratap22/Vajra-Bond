@@ -34,13 +34,12 @@ body {
 /* On-Scroll Reveal Animations - Crisp & High-Impact */
 .reveal {
   opacity: 0;
-  transform: translateY(44px);
-  transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
-.reveal.revealed,
-.reveal[data-revealed="true"] {
+.reveal.revealed {
   opacity: 1;
   transform: none;
   will-change: auto;
@@ -48,13 +47,12 @@ body {
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-48px);
-  transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateX(-32px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
-.reveal-left.revealed,
-.reveal-left[data-revealed="true"] {
+.reveal-left.revealed {
   opacity: 1;
   transform: none;
   will-change: auto;
@@ -62,13 +60,12 @@ body {
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(48px);
-  transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateX(32px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
-.reveal-right.revealed,
-.reveal-right[data-revealed="true"] {
+.reveal-right.revealed {
   opacity: 1;
   transform: none;
   will-change: auto;
@@ -76,13 +73,12 @@ body {
 
 .reveal-zoom {
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: scale(0.95);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
-.reveal-zoom.revealed,
-.reveal-zoom[data-revealed="true"] {
+.reveal-zoom.revealed {
   opacity: 1;
   transform: none;
   will-change: auto;

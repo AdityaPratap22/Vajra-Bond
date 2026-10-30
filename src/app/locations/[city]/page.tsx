@@ -190,7 +190,7 @@ export default async function CityLocationPage({ params }: PageProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/80 to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left reveal">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-xs text-stone-400 mb-6">
             <Link href="/" className="hover:text-amber-400 transition-colors">

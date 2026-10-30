@@ -14,11 +14,10 @@ export default function ScrollAnimationObserver() {
     // Defer observation until after React hydration is completely finished
     const timer = setTimeout(() => {
       const selector =
-        '.reveal:not([data-revealed="true"]), .reveal-left:not([data-revealed="true"]), .reveal-right:not([data-revealed="true"]), .reveal-zoom:not([data-revealed="true"])';
+        '.reveal:not(.revealed), .reveal-left:not(.revealed), .reveal-right:not(.revealed), .reveal-zoom:not(.revealed)';
 
       if (!('IntersectionObserver' in window)) {
         document.querySelectorAll(selector).forEach((el) => {
-          el.setAttribute('data-revealed', 'true');
           el.classList.add('revealed');
         });
         return;
@@ -28,7 +27,6 @@ export default function ScrollAnimationObserver() {
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.setAttribute('data-revealed', 'true');
               entry.target.classList.add('revealed');
               observer?.unobserve(entry.target);
             }
@@ -36,14 +34,14 @@ export default function ScrollAnimationObserver() {
         },
         {
           root: null,
-          rootMargin: '0px 0px -30px 0px',
+          rootMargin: '0px 0px -20px 0px',
           threshold: 0.05,
         }
       );
 
       const elements = document.querySelectorAll(selector);
       elements.forEach((el) => observer?.observe(el));
-    }, 60);
+    }, 100);
 
     return () => {
       clearTimeout(timer);
