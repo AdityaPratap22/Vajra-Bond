@@ -20,8 +20,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://vajrabond.com'),
   title: {
-    default: 'Vajra Bond | Premium Polymer Tile Adhesives (IS 15477:2019)',
-    template: '%s | Vajra Bond',
+    default: 'Vajra Bond | Majboot Jod. Lambi Umar. — Polymer Tile Adhesives',
+    template: '%s',
   },
   description:
     'Vajra Bond manufactures high-performance polymer-modified tile adhesives, tile-on-tile bonding mortars, and stone chemicals conforming to IS 15477:2019. Direct factory supply within 500-600km of Delhi NCR across Haryana, Punjab, and Rajasthan.',
