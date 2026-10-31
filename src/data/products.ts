@@ -122,7 +122,7 @@ export const products: Product[] = [
     standardType: 'IS: 15477:2019 TYPE 2 T',
     enCode: 'EN 12004 C1TE',
     packSize: '20 kg',
-    image: '/images/products/vb-2002-packaging.jpg',
+    image: '/images/products/vb-2002-new.jpg',
     badge: 'Type 2T C1TE',
     colorTone: '#b45309',
     description: 'Polymer blended, cement-based tile adhesive for fixing ceramic and vitrified tiles in indoor areas, on both vertical and horizontal surfaces.',

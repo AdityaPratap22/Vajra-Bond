@@ -247,7 +247,7 @@ export default function HomeClient() {
             <Link href="/products/vb-2002-ceramic-vitrified-tile-adhesive" className="w-full flex justify-center">
               <div className="relative w-full max-w-[208px] aspect-[3/4] rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200/80 shadow-md group-hover:shadow-2xl group-hover:border-[#c5832b]/50 group-hover:-translate-y-1.5 transition-all duration-300">
                 <Image
-                  src="/images/products/vb-2002-front.jpg"
+                  src="/images/products/vb-2002-front-new.jpg"
                   alt="Tile Adhesive for Ceramic and Vitrified Tiles"
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
